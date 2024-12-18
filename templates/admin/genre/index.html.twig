@@ -1,0 +1,31 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Hello GenreController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Gérer les genres</h1>
+    <a href="{{ path('genre_create') }}" class="btn btn-primary">Créer un genre</a>
+
+
+    <div class="d-flex">
+        {% for genre in genres %}
+            <div>
+                <h2>{{ genre.name }}</h2>
+
+                <a href="" class="btn btn-warning">Modifier</a>
+                <a href="" class="btn btn-danger">Supprimer</a>
+
+            </div>
+
+
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

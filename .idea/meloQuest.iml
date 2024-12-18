@@ -80,5 +80,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Mateo" />
+    <orderEntry type="module" module-name="kitchen" />
   </component>
 </module>

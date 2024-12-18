@@ -1,0 +1,108 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  scroll-behavior: smooth;
+}
+
+//HEADER
+
+header{
+  background-color: #0a0a0a;
+  height: 10vh;
+  margin-bottom: 40px;
+}
+
+ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img{
+    width: 30%;
+  }
+  a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+  }
+}
+
+#title{
+  color: white;
+  font-size: 40px;
+  text-align: center;
+}
+
+#signInButtonHeader{
+  font-size: 20px;
+  padding: 5px;
+  background-color: #ff6a00;
+  border: none;
+  border-radius: 10px;
+}
+
+//MAIN
+
+main{
+  font-family: Roboto, sans-serif;
+
+}
+
+#sectionHome{
+  height: 100vh;
+  h2{
+    text-align: center;
+    font-weight: normal;
+    font-size: 70px;
+    margin-bottom: 20px;
+    font-family: Roboto, sans-serif;
+  }
+}
+
+#searchBar{
+  text-align: center;
+  margin-bottom: 40px;
+  #searchBarInput{
+    width: 40%;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(153,153,153,0.38);
+    font-size: 30px;
+    text-align: center;
+  }
+}
+
+#articleHome{
+  background-color: #0a0a0a;
+  height: 100vh;
+  h2{
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-size: 70px;
+    margin-bottom: 20px;
+  }
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+}
+
+#signInButtonMain{
+  margin-top: 40px;
+  font-size: 40px;
+  padding: 10px;
+  background-color: #ff6a00;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+
+
+

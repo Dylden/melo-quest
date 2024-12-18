@@ -13,19 +13,32 @@
     <a href="{{ path('genre_create') }}" class="btn btn-primary">Créer un genre</a>
 
 
-    <div class="d-flex">
-        {% for genre in genres %}
-            <div>
-                <h2>{{ genre.name }}</h2>
+    <div class="d-flex flex-wrap">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Modifier</th>
+                <th scope="col">Supprimer</th>
+            </tr>
+            </thead>
+            <tbody>
 
-                <a href="" class="btn btn-warning">Modifier</a>
-                <a href="" class="btn btn-danger">Supprimer</a>
+            {% for genre in genres %}
+            <tr>
+                <th scope="row">{{ genre.id }}</th>
+                <td>{{ genre.name }}</td>
+                <td><a href="{{ path('genre_update', {'id':  genre.id }) }}" class="btn btn-warning">Modifier</a></td>
+                <td><a href="{{ path('genre_delete', {'id': genre.id}) }}" class="btn btn-danger">Supprimer</a></td>
+            </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
 
-            </div>
 
 
-        {% endfor %}
 
     </div>
-</div>
 {% endblock %}

@@ -49,4 +49,44 @@ class GenreController extends AbstractController
             'user' => $user,
         ]);
     }
+
+    #[Route('/admin/genre/{id}/update', name: 'genre_update', requirements: ['id' => '\d+'])]
+    function updateGenre(Request $request, EntityManagerInterface $entityManager, Genre $genre): Response{
+
+        $form = $this->createForm(GenreType::class, $genre);
+
+        $form->handleRequest($request);
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager->persist($genre);
+            $entityManager->flush();
+            return $this->redirectToRoute('genre');
+        }
+
+        $form_view = $form->createView();
+
+
+        return $this->render('admin/genre/update.html.twig', [
+            'form_view' => $form_view,
+            'genre' => $genre,
+        ]);
+    }
+
+    #[Route('/admin/genre/{id}/delete', name: 'genre_delete', requirements: ['id' => '\d+'])]
+    public function deleteGenre(int $id, EntityManagerInterface $entityManager, GenreRepository $genreRepository): Response{
+
+        $genre = $genreRepository->find($id);
+
+        $entityManager->remove($genre);
+        $entityManager->flush();
+
+        $this->addFlash('success','Le genre a été supprimé avec succès !');
+
+
+        return $this->redirectToRoute('genre');
+
+
+    }
 }

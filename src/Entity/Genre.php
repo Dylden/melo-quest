@@ -25,7 +25,7 @@ class Genre
     /**
      * @var Collection<int, Track>
      */
-    #[ORM\ManyToMany(targetEntity: Track::class, inversedBy: 'genre')]
+    #[ORM\ManyToMany(targetEntity: Track::class, mappedBy: 'genres')]
     private Collection $tracks;
 
     public function __construct()

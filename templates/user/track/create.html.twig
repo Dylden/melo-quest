@@ -11,6 +11,31 @@
     <div class="example-wrapper">
         <h1>Ajouter une musique</h1>
 
+        {{ form_start(form_view) }}
+
+        <div>
+            {{ form_label(form_view.title) }}
+            {{ form_widget(form_view.title) }}
+            {{ form_errors(form_view.title) }}
+        </div>
+
+        <div>
+            {{ form_label(form_view.genres) }}
+            {{ form_widget(form_view.genres) }}
+            {{ form_errors(form_view.genres) }}
+        </div>
+
+        <div>
+            {{ form_label(form_view.filename) }}
+            {{ form_widget(form_view.filename) }}
+            {{ form_errors(form_view.filename) }}
+        </div>
+
+        <div>
+            {{ form_widget(form_view.submit) }}
+        </div>
+
+        {{ form_end(form_view) }}
     </div>
 {% endblock %}
 

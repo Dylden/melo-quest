@@ -21,7 +21,7 @@ class Track
     /**
      * @var Collection<int, Genre>
      */
-    #[ORM\ManyToMany(targetEntity: Genre::class, mappedBy: 'track')]
+    #[ORM\ManyToMany(targetEntity: Genre::class, inversedBy: 'tracks')]
     private Collection $genres;
 
 
@@ -35,11 +35,18 @@ class Track
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $filename = null;
+
+    #[ORM\Column(nullable: false)]
+    private ?\DateTimeImmutable $createdAt = null;
+
 
     public function __construct()
     {
         $this->genres = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -86,12 +93,12 @@ class Track
         return $this;
     }
 
-    public function getUser(): ?Admin
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?Admin $user): static
+    public function setUser(?User $user): static
     {
         $this->user = $user;
 
@@ -124,6 +131,30 @@ class Track
                 $comment->setTrack(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFilename(): ?string
+    {
+        return $this->filename;
+    }
+
+    public function setFilename(string $filename): static
+    {
+        $this->filename = $filename;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

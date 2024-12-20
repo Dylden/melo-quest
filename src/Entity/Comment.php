@@ -17,13 +17,13 @@ class Comment
     #[ORM\Column(length: 255)]
     private ?string $comment = null;
 
-    #[ORM\ManyToOne(inversedBy: 'comments')]
-    private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
     private ?Track $track = null;
 
-
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -42,17 +42,6 @@ class Comment
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): static
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 
     public function getTrack(): ?Track
     {
@@ -62,6 +51,18 @@ class Comment
     public function setTrack(?Track $track): static
     {
         $this->track = $track;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

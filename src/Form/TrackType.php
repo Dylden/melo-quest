@@ -4,11 +4,13 @@ namespace App\Form;
 
 use App\Entity\Genre;
 use App\Entity\Track;
-use App\Entity\User;
+use App\Entity\Admin;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use function Sodium\add;
 
 class TrackType extends AbstractType
 {
@@ -20,9 +22,11 @@ class TrackType extends AbstractType
                 'class' => Genre::class,
                 'choice_label' => 'id',
                 'multiple' => true,
-            ]);
+            ])
+            ->add('submit', SubmitType::class);
+
             //->add('user', EntityType::class, [
-              //  'class' => User::class,
+              //  'class' => Admin::class,
                 //'choice_label' => 'id',
             //]);
     }

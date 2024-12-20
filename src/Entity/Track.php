@@ -24,15 +24,16 @@ class Track
     #[ORM\ManyToMany(targetEntity: Genre::class, mappedBy: 'track')]
     private Collection $genres;
 
-    #[ORM\ManyToOne(inversedBy: 'tracks')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?User $user = null;
 
     /**
      * @var Collection<int, Comment>
      */
     #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'track')]
     private Collection $comments;
+
+    #[ORM\ManyToOne(inversedBy: 'track')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
 
 
     public function __construct()
@@ -85,12 +86,12 @@ class Track
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getUser(): ?Admin
     {
         return $this->user;
     }
 
-    public function setUser(?User $user): static
+    public function setUser(?Admin $user): static
     {
         $this->user = $user;
 

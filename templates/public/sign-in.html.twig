@@ -10,21 +10,8 @@
     <main>
         <h1>Page d'inscription</h1>
 
-        <form action="{{ path('login') }}" method="post">
-            <label for="username">Nom d'utilisateur :
-                <input type="text" id="username" name="_username">
-            </label>
+        {{ form(form_view) }}
 
-            <label for="email">Email :
-                <input type="text" id="email" name="_email">
-            </label>
-
-            <label for="password">Mot de passe :
-                <input type="password" id="password" name="_password">
-            </label>
-
-            <button type="submit">Se connecter</button>
-        </form>
     </main>
 
 {% endblock %}

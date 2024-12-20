@@ -40,7 +40,7 @@ class TrackController extends AbstractController
 
         $user = $this->getUser();
 
-        return $this->render('track/index.html.twig', [
+        return $this->render('/user/track/create.html.twig', [
             'form_view' => $form_view,
             'user' => $user,
 

@@ -12,6 +12,43 @@
     <div class="example-wrapper">
         <h1>Dashboard Admin</h1>
 
+        <a href="" class="btn btn-primary">Créer un admin</a>
+
+        <div class="example-wrapper">
+            <h1>Gérer les utilisateurs</h1>
+
+
+            <div class="d-flex flex-wrap">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Utilisateur</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Rôle</th>
+                        <th scope="col">Modifier</th>
+                        <th scope="col">Supprimer</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for user in users %}
+                    <tr>
+                        <th scope="row">{{ user.id }}</th>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+
+                        {% for role in user.roles %}
+                            <td>{{ role }}</td>
+                        {% endfor %}
+                        <td><a href="" class="btn btn-warning">Modifier</a></td>
+                        <td><a href="" class="btn btn-danger">Supprimer</a></td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+
 
     </div>
 {% endblock %}

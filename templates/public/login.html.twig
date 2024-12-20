@@ -10,6 +10,11 @@
     <main>
 <h1>Page de connexion</h1>
 
+
+        {% if error %}
+        <h2>{{ error.messageKey }}</h2>
+        {% endif %}
+
         <form action="{{ path('login') }}" method="post">
             <label for="username">Email :
                 <input type="text" id="username" name="_username">

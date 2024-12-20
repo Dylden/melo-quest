@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\Comment;
 use App\Entity\Track;
-use App\Entity\User;
+use App\Entity\Admin;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,7 +17,7 @@ class CommentType extends AbstractType
         $builder
             ->add('comment')
             ->add('user', EntityType::class, [
-                'class' => User::class,
+                'class' => Admin::class,
                 'choice_label' => 'id',
             ]);
             //->add('track', EntityType::class, [

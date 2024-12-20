@@ -2,16 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Repository\AdminRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-#[ORM\Entity(repositoryClass: UserRepository::class)]
+#[ORM\Entity(repositoryClass: AdminRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class Admin implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -35,27 +33,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $username = null;
-
-    /**
-     * @var Collection<int, Track>
-     */
-    #[ORM\OneToMany(targetEntity: Track::class, mappedBy: 'user', orphanRemoval: true)]
-    private Collection $track;
-
-
-
-
-    /**
-     * @var Collection<int, Comment>
-     */
-
-
-    public function __construct()
-    {
-        $this->track = new ArrayCollection();
-    }
-
-
 
     public function getId(): ?int
     {
@@ -81,12 +58,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string)$this->email;
+        return (string) $this->email;
     }
 
     /**
-     * @return list<string>
      * @see UserInterface
+     * @return list<string>
      */
     public function getRoles(): array
     {
@@ -142,37 +119,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
-    /**
-     * @return Collection<int, Track>
-     */
-    public function getTrack(): Collection
-    {
-        return $this->track;
-    }
-
-    public function addTrack(Track $track): static
-    {
-        if (!$this->track->contains($track)) {
-            $this->track->add($track);
-            $track->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTrack(Track $track): static
-    {
-        if ($this->track->removeElement($track)) {
-            // set the owning side to null (unless already changed)
-            if ($track->getUser() === $this) {
-                $track->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-
-
 }

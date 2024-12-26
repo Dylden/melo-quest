@@ -94,7 +94,7 @@ class TrackController extends AbstractController
         }
         $form_view = $form->createView();
 
-        return $this->render('track/update.html.twig', [
+        return $this->render('user/track/update.html.twig', [
             'form_view' => $form_view,
         ]);
     }

@@ -1,4 +1,3 @@
-
 {% extends 'user/user-base.html.twig' %}
 
 {% block title %}Hello TrackController!{% endblock %}
@@ -24,6 +23,9 @@
     <p>{{ track.createdAt | date('d-m-Y') }}</p>
 
     <a href="{{ path('track_show', {'id': track.id}) }}" class="btn btn-primary">Play</a>
+    <a href="{{ path('track_update', {'id' : track.id}) }}" class="btn btn-warning">Modifier</a>
+    <a href="{{ path('track_delete', {'id' : track.id}) }}" class="btn btn-danger">Supprimer</a>
+
 
 
 {% endfor%}

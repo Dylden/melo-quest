@@ -98,4 +98,23 @@ main {
   color: white;
 }
 
+.showPlayButton {
+  border: none;
+  border-radius: 20px;
+  background-color: orangered;
+  padding: 10px;
+  color: white;
+  justify-content: center;
+}
+
+.userTracksFlex {
+  display: flex;
+}
+
+#waveform {
+  background-color: rgba(255, 112, 0, 0.38);
+  border: solid 2px orangered;
+  margin-bottom: 20px;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -82,9 +82,13 @@ class AdminDashboardController extends AbstractController
     public function updateUser(int $id, Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $entityManager, UserRepository $userRepository): Response
     {
         $user = $userRepository->find($id);
+
         $form = $this->createForm(UserType::class, $user);
+
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
+
             $password = $form->get('password')->getData();
 
             if (!$password) {
@@ -107,7 +111,7 @@ class AdminDashboardController extends AbstractController
 
         $form_view = $form->createView();
 
-        return $this->render('admin/dashboard.html.twig', [
+        return $this->render('admin/users_list/update.html.twig', [
             'form_view' => $form_view,
             'user' => $user,
         ]);

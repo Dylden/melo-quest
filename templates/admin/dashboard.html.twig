@@ -41,8 +41,8 @@
                         {% for role in user.roles %}
                             <td>{{ role }}</td>
                         {% endfor %}
-                        <td><a href="" class="btn btn-warning">Modifier</a></td>
-                        <td><a href="" class="btn btn-danger">Supprimer</a></td>
+                        <td><a href="{{ path('admin_update', {'id' : user.id}) }}" class="btn btn-warning">Modifier</a></td>
+                        <td><a href="{{ path('admin_delete', {'id' : user.id}) }}" class="btn btn-danger">Supprimer</a></td>
                     </tr>
                     </tbody>
                     {% endfor %}

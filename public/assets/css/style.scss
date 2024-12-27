@@ -1,42 +1,57 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+html, body {
+  height: 100%; /* Fixe la hauteur totale de la page */
+  margin: 0; /* Enlève les marges par défaut */
+}
+
+body {
   scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column; /* Organise les éléments (header, main, footer) en colonne */
+  height: 100vh;
+
 }
 
 //HEADER
 
-header{
+header {
   background-color: #0a0a0a;
   height: 10vh;
   margin-bottom: 40px;
 }
 
-ul{
+ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  img{
+
+  img {
     width: 30%;
   }
-  a{
+
+  a {
     color: white;
     text-decoration: none;
     font-size: 20px;
   }
 }
 
-#title{
+#userNavBar {
+  justify-content: space-around;
+}
+
+#title {
   color: white;
   font-size: 40px;
   text-align: center;
 }
 
-#signInButtonHeader{
+#signInButtonHeader {
   font-size: 20px;
   padding: 5px;
   background-color: #ff6a00;
@@ -46,14 +61,17 @@ ul{
 
 //MAIN
 
-main{
+main {
   font-family: Roboto, sans-serif;
+  flex-grow: 1; /* Permet au contenu principal de prendre tout l'espace restant */
+
 
 }
 
-#sectionHome{
+#sectionHome {
   height: 100vh;
-  h2{
+
+  h2 {
     text-align: center;
     font-weight: normal;
     font-size: 70px;
@@ -62,23 +80,25 @@ main{
   }
 }
 
-#searchBar{
+#searchBar {
   text-align: center;
   margin-bottom: 40px;
-  #searchBarInput{
+
+  #searchBarInput {
     width: 40%;
     border: none;
     border-radius: 15px;
-    background-color: rgba(153,153,153,0.38);
+    background-color: rgba(153, 153, 153, 0.38);
     font-size: 30px;
     text-align: center;
   }
 }
 
-#articleHome{
+#articleHome {
   background-color: #0a0a0a;
   height: 100vh;
-  h2{
+
+  h2 {
     color: white;
     text-align: center;
     font-weight: normal;
@@ -87,12 +107,12 @@ main{
   }
 }
 
-.flex{
+.flex {
   display: flex;
   justify-content: center;
 }
 
-#signInButtonMain{
+#signInButtonMain {
   margin-top: 40px;
   font-size: 40px;
   padding: 10px;
@@ -103,9 +123,46 @@ main{
   color: white;
 }
 
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.trackLibraryContainer {
+  width: 20%;
+  font-size: 30px;
+  padding: 10px;
+  background-color: #ff6a00;
+  word-break: break-word;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+//FOOTER
+
+footer {
+  nav {
+    background-color: #0a0a0a;
+    height: 10vh;
+    ul {
+      display: flex;
+      justify-content: center;
+      li {
+        margin: 0 20px; /* Espacement entre les éléments de la liste */
+        a {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
 //TRACKS
 
-.showPlayButton{
+.showPlayButton {
   border: none;
   border-radius: 20px;
   background-color: orangered;
@@ -114,14 +171,22 @@ main{
   justify-content: center;
 }
 
-.userTracksFlex{
+.userTracksFlex {
   display: flex;
 }
 
-#waveform{
-  background-color: rgba(255,112,0,0.38);
-  border: solid 2px orangered;
+#waveform {
+  background: linear-gradient(45deg, rgba(52, 52, 52, 0.8), rgb(63, 63, 63));
+  backdrop-filter: blur(30px);
+
+  border: solid 2px #090909;
   margin-bottom: 20px
+}
+
+#showTrackTitle {
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 

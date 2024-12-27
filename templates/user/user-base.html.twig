@@ -16,19 +16,32 @@
 
 <header>
     <nav>
-        <ul>
+        <ul id="userNavBar">
             <a href="{{ path ('home') }}"><img src="{{ asset('assets/img/Music.jpg') }}" alt="logo"></a>
-            <li><a href="{{ path ('admin_dashboard') }}" id="signInButtonHeader">ADMIN</a></li>
             <li><a href="{{ path ('user_home') }}" id="title">MeloQuest</a></li>
+            <li><a href="{{ path ('user_profile') }}" id="title">{{ user.username }}</a></li>
+
             <li><a href="{{ path ('logout') }}">Déconnexion</a></li>
         </ul>
     </nav>
 </header>
 
+
+<main>
 {% block body %}
 
 
 
 {% endblock %}
+</main>
+<footer>
+    <nav>
+        <ul>
+            <li>
+            <li><a href="{{ path ('admin_dashboard') }}" id="signInButtonHeader">ADMIN</a></li>
+            </li>
+        </ul>
+    </nav>
+</footer>
 </body>
 </html>

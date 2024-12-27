@@ -3,11 +3,10 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <style>
+    <style xmlns="http://www.w3.org/1999/html">
         .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     </style>
-    <main>
 
 
         <section id="sectionHome">
@@ -19,6 +18,23 @@
                 <input id="searchBarInput" type="search" name="search" placeholder="RECHERCHER">
             </form>
 
+            <div class="container">
+                <div class="trackLibraryContainer">
+                    <a href="">Explorateur de musiques</a>
+                </div>
+                <div class="trackLibraryContainer">
+                    <a href="">Test</a>
+                </div>
+                <div class="trackLibraryContainer">
+                    <a href="">Test</a>
+                </div>
+                <div class="trackLibraryContainer">
+                    <a href="">Test</a>
+                </div>
+            </div>
+
+
+
 
         </section>
         <article id="articleHome">
@@ -27,11 +43,9 @@
 
             <div class="flex">
                 <a href="{{ path('track_create') }}" id="signInButtonMain">Ajouter une musique</a>
-                <a href="{{ path('track') }}" id="signInButtonMain">Liste musiques</a>
 
             </div>
         </article>
-    </main>
 
 {% endblock %}
 

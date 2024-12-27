@@ -1,0 +1,24 @@
+{% extends 'user/user-base.html.twig' %}
+
+{% block title %}Profil de {{ user.username }}{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="example-wrapper">
+        <h1>Profil de {{ user.username }}</h1>
+        <ul>
+            <li>{{ user.email }}</li>
+        </ul>
+
+        <h2>Les musiques de {{ user.username }} :</h2>
+
+        <a href="{{ path('track') }}" id="signInButtonMain">Liste musiques</a>
+
+
+
+    </div>
+{% endblock %}

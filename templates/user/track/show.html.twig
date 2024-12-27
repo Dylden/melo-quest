@@ -21,7 +21,7 @@
 
     <div class="showTrack">
 
-        <h1>{{ track.title }}</h1>
+        <h1 id="showTrackTitle">{{ track.title }}</h1>
 
         <div id="waveform"></div>
 
@@ -39,8 +39,8 @@
         document.addEventListener('DOMContentLoaded', function () {
             const wavesurfer = WaveSurfer.create({
                 container: '#waveform',
-                waveColor: '#4F4A85',
-                progressColor: '#383351',
+                waveColor: '#d5d5d5',
+                progressColor: '#ff6a00',
                 url: '{{ asset('assets/uploads/tracks/' ~ track.filename) }}',
 
             });

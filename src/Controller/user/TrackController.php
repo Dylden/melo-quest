@@ -18,11 +18,12 @@ class TrackController extends AbstractController
     #[Route('/track', name: 'track')]
     public function listTracks(TrackRepository $trackRepository, EntityManagerInterface $entityManager): Response
     {
-
+        $user = $this->getUser();
         $tracks = $trackRepository->findAll();
 
 
         return $this->render('user/track/index.html.twig', [
+            'user' => $user,
             'tracks' => $tracks,
         ]);
     }
@@ -70,7 +71,6 @@ class TrackController extends AbstractController
 
 
 
-
         return $this->render('/user/track/create.html.twig', [
             'form_view' => $form_view,
             'user' => $user,
@@ -80,6 +80,7 @@ class TrackController extends AbstractController
 
     #[Route('/track/{id}/update', name: 'track_update', requirements: ['id' => '\d+'])]
     function updateTrack(Request $request, EntityManagerInterface $entityManager, Track $track): Response{
+        $user = $this->getUser();
 
         $form = $this->createForm(TrackType::class, $track);
 
@@ -96,16 +97,18 @@ class TrackController extends AbstractController
 
         return $this->render('user/track/update.html.twig', [
             'form_view' => $form_view,
+            'user' => $user,
         ]);
     }
 
 
     #[Route('/track/{id}/show', name: 'track_show', requirements: ['id' => '\d+'])]
     public function showTrack(int $id, TrackRepository $trackRepository): Response{
-
+        $user = $this->getUser();
         $track = $trackRepository->find($id);
 
         return $this->render('user/track/show.html.twig', [
+            'user' => $user,
             'track' => $track,
 
         ]);

@@ -18,7 +18,6 @@
         <nav>
             <ul>
                 <a href="{{ path ('home') }}"><img src="../public/assets/img/Music.jpg" alt="logo"></a>
-                <li><a href="{{ path ('admin_dashboard') }}" id="signInButtonHeader">ADMIN</a></li>
                 <li><a href="{{ path ('home') }}" id="title">MeloQuest</a></li>
                 <li><a href="{{ path ('login') }}">Connexion</a></li>
                 <li><a href="{{ path ('sign_in') }}" id="signInButtonHeader">Inscription</a></li>
@@ -31,5 +30,15 @@
 
 
         {% endblock %}
+
+    <footer>
+        <nav>
+            <ul>
+                <li>
+                <li><a href="{{ path ('admin_dashboard') }}" id="signInButtonHeader">ADMIN</a></li>
+                </li>
+            </ul>
+        </nav>
+    </footer>
     </body>
 </html>

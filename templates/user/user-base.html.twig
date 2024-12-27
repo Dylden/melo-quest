@@ -19,7 +19,7 @@
         <ul id="userNavBar">
             <a href="{{ path ('home') }}"><img src="{{ asset('assets/img/Music.jpg') }}" alt="logo"></a>
             <li><a href="{{ path ('user_home') }}" id="title">MeloQuest</a></li>
-            <li><a href="{{ path ('user_profile') }}" id="title">{{ user.username }}</a></li>
+            <li><a href="{{ path ('user_profile') }}" id="usernameHeader">{{ user.username }}</a></li>
 
             <li><a href="{{ path ('logout') }}">Déconnexion</a></li>
         </ul>

@@ -47,6 +47,14 @@ ul a {
   text-align: center;
 }
 
+#usernameHeader {
+  font-size: 30px;
+}
+
+#usernameHeader:hover {
+  color: rgb(255, 114, 0);
+}
+
 #signInButtonHeader {
   font-size: 20px;
   padding: 5px;

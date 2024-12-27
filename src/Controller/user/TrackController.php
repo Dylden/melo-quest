@@ -21,7 +21,6 @@ class TrackController extends AbstractController
         $user = $this->getUser();
         $tracks = $trackRepository->findAll();
 
-
         return $this->render('user/track/index.html.twig', [
             'user' => $user,
             'tracks' => $tracks,
@@ -58,8 +57,6 @@ class TrackController extends AbstractController
                 $track->setFilename($trackFileNewName);
             }
 
-
-
             $track->setUser($user);
 
             $entityManager->persist($track);
@@ -68,8 +65,6 @@ class TrackController extends AbstractController
         }
 
         $form_view = $form->createView();
-
-
 
         return $this->render('/user/track/create.html.twig', [
             'form_view' => $form_view,
@@ -101,7 +96,6 @@ class TrackController extends AbstractController
         ]);
     }
 
-
     #[Route('/track/{id}/show', name: 'track_show', requirements: ['id' => '\d+'])]
     public function showTrack(int $id, TrackRepository $trackRepository): Response{
         $user = $this->getUser();
@@ -112,9 +106,7 @@ class TrackController extends AbstractController
             'track' => $track,
 
         ]);
-
     }
-
 
     #[Route('/track/{id}/delete', name: 'track_delete', requirements: ['id' => '\d+'])]
     public function deleteTrack(int $id,Request $request, EntityManagerInterface $entityManager, TrackRepository $trackRepository): Response{

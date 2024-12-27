@@ -123,6 +123,8 @@ main {
   color: white;
 }
 
+
+
 .container {
   display: flex;
   justify-content: space-around;
@@ -150,10 +152,16 @@ footer {
     ul {
       display: flex;
       justify-content: center;
+      align-items: center;
+      height: 100%;
       li {
         margin: 0 20px; /* Espacement entre les éléments de la liste */
-        a {
-          text-align: center;
+
+        .adminButton{
+          background-color: red;
+          color: white;
+          padding: 10%;
+          font-weight: bold;
         }
       }
     }

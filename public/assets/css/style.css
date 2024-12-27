@@ -136,12 +136,17 @@ footer nav {
 footer nav ul {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 footer nav ul li {
   margin: 0 20px; /* Espacement entre les éléments de la liste */
 }
-footer nav ul li a {
-  text-align: center;
+footer nav ul li .adminButton {
+  background-color: red;
+  color: white;
+  padding: 10%;
+  font-weight: bold;
 }
 
 .showPlayButton {

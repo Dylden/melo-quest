@@ -4,9 +4,10 @@ namespace App\Form;
 
 use App\Entity\Comment;
 use App\Entity\Track;
-use App\Entity\Admin;
+use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,13 +18,15 @@ class CommentType extends AbstractType
         $builder
             ->add('comment')
             ->add('user', EntityType::class, [
-                'class' => Admin::class,
+                'class' => User::class,
                 'choice_label' => 'id',
-            ]);
+            ])
             //->add('track', EntityType::class, [
               //  'class' => Track::class,
                 //'choice_label' => 'id',
             //]);
+            ->add('submit', SubmitType::class);
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -2,8 +2,11 @@
 
 namespace App\Controller\user;
 
+use App\Entity\Comment;
 use App\Entity\Track;
+use App\Form\CommentType;
 use App\Form\TrackType;
+use App\Repository\CommentRepository;
 use App\Repository\TrackRepository;
 use App\service\UniqueFilenameGenerator;
 use Doctrine\ORM\EntityManagerInterface;
@@ -97,14 +100,39 @@ class TrackController extends AbstractController
     }
 
     #[Route('/track/{id}/show', name: 'track_show', requirements: ['id' => '\d+'])]
-    public function showTrack(int $id, TrackRepository $trackRepository): Response{
+    public function showTrack(int $id, Request $request, TrackRepository $trackRepository, CommentRepository $commentRepository, EntityManagerInterface $entityManager): Response{
+
         $user = $this->getUser();
         $track = $trackRepository->find($id);
+
+
+        if(!$track){
+            throw $this->createNotFoundException("Track not found");
+        }
+
+        $comments = $commentRepository->findBy(['track' => $track]);
+
+        $comment = new Comment();
+
+        $form = $this->createForm(CommentType::class, $comment);
+
+        $comment->setUser($user);
+        $comment->setTrack($track);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $entityManager->persist($comment);
+            $entityManager->flush();
+            return $this->redirectToRoute('track_show', ['id' => $id]);
+        }
+
 
         return $this->render('user/track/show.html.twig', [
             'user' => $user,
             'track' => $track,
-
+            'comments' => $comments,
+            'commentForm' => $form->createView(),
         ]);
     }
 

@@ -205,5 +205,34 @@ footer {
   margin-bottom: 40px;
 }
 
+//Commentaires
+
+.commentsContainer{
+  display: flex;
+  margin-top: 40px;
+  flex-direction: column;
+  background-color: #181818;
+  color: white;
+  .addCommentContainer{
+    padding: 20px;
+    border: solid 2px white;
+    h2{
+      text-align: center;
+    }
+  }
+  .listCommentsContainer{
+    padding: 20px;
+    border: solid 2px white;
+    h2{
+      text-align: center;
+    }
+    ul{
+      margin-bottom: 30px;
+    }
+  }
+}
+
+
+
 
 

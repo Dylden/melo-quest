@@ -18,14 +18,14 @@
         }
     </style>
 
-<!-- Lecteur audio -->
+    <!-- Lecteur audio -->
 
     <div class="showTrack">
 
         <h1 id="showTrackTitle">{{ track.title }}</h1>
 
         <div class="audioPlayer">
-            <button id="playPauseBtn" class="showPlayButton"> > </button>
+            <button id="playPauseBtn" class="showPlayButton"> ></button>
         </div>
 
         <div class="playerBody">
@@ -35,13 +35,13 @@
             <div class="controls">
                 <div class="volume">
                     <input
-                    id="volumeSlider"
-                    class="volume-slider"
-                    type="range"
-                    name="volume-slider"
-                    min="0"
-                    max="100"
-                    value="50"/>
+                            id="volumeSlider"
+                            class="volume-slider"
+                            type="range"
+                            name="volume-slider"
+                            min="0"
+                            max="100"
+                            value="50"/>
                 </div>
 
                 <div class="timecode">
@@ -53,36 +53,47 @@
         </div>
     </div>
 
+
     <!-- Création commentaire -->
+    <article class="commentsContainer">
+        <div class="addCommentContainer">
+            <h2>Ajouter un commentaire</h2>
 
-    <h2>Ajouter un commentaire</h2>
+            {{ form_start(commentForm) }}
 
-    {{ form_start(commentForm) }}
+            <div>
+                {{ form_widget(commentForm.comment) }}
+                {{ form_errors(commentForm.comment) }}
+            </div>
 
-    <div>
-        {{ form_label(commentForm.comment) }}
-        {{ form_widget(commentForm.comment) }}
-        {{ form_errors(commentForm.comment) }}
-    </div>
+            <div>
+                {{ form_widget(commentForm.submit) }}
+            </div>
 
-    <div>
-        {{ form_widget(commentForm.submit) }}
-    </div>
+            {{ form_end(commentForm) }}
+        </div>
 
-    {{ form_end(commentForm) }}
 
-    <!-- Espace commentaire -->
+        <!-- Espace commentaire -->
+        <div class="listCommentsContainer">
 
-    <h2>Commentaires</h2>
+            <h2>Commentaires</h2>
 
-    {% for comment in comments %}
+            {% for comment in comments %}
 
-        <p>{{ comment.comment }}</p>
+            <ul>
+                <li>{{ comment.comment }}</li>
+            </ul>
 
-        {% else %}
-        <p>Il n'y a pas encore de commentaire, n'hésitez pas à en ajouter un !</p>
+            {% else %}
 
-    {% endfor %}
+                <p>Il n'y a pas encore de commentaire, n'hésitez pas à en ajouter un !</p>
+
+            {% endfor %}
+        </div>
+
+    </article>
+
 
 
     <!-- Waveform en JS pour la lecture des tracks -->

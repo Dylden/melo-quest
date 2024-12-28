@@ -40,20 +40,26 @@ class LoginController extends AbstractController
 
             $password = $form->get('password')->getData();
 
-            //Permet de hash le mot de passe inscrit par l'utilisateur
-            $hashedPassword = $passwordHasher->hashPassword($user, $password);
 
-            $user->setPassword($hashedPassword);
+            if($password){
+                //Permet de hash le mot de passe inscrit par l'utilisateur
+                $hashedPassword = $passwordHasher->hashPassword($user, $password);
 
-            //Attribue au user inscrit le rôle USER
-            $user->setRoles(['ROLE_USER']);
+                $user->setPassword($hashedPassword);
 
-            $entityManager->persist($user);
-            $entityManager->flush();
+                //Attribue au user inscrit le rôle USER
+                $user->setRoles(['ROLE_USER']);
 
-            $this->addFlash('success', 'Inscription réussie !');
+                $entityManager->persist($user);
+                $entityManager->flush();
 
-            return $this->redirectToRoute('home');
+                $this->addFlash('success', 'Inscription réussie !');
+
+                return $this->redirectToRoute('home');
+            } else{
+                $this->addFlash('error', 'Le mot de passe ne peut pas être vide.');
+            }
+
         }
 
         $form_view = $form->createView();

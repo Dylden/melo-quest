@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%; /* Fixe la hauteur totale de la page */
+  margin: 0; /* Enlève les marges par défaut */
+}
+
+body {
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column; /* Organise les éléments (header, main, footer) en colonne */
+  height: 100vh;
+
+}

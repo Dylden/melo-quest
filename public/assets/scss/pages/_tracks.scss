@@ -1,0 +1,26 @@
+.showPlayButton {
+  border: none;
+  border-radius: 20px;
+  background-color: orangered;
+  padding: 10px;
+  color: white;
+  justify-content: center;
+}
+
+.userTracksFlex {
+  display: flex;
+}
+
+#waveform {
+  background: linear-gradient(45deg, rgba(52, 52, 52, 0.8), rgb(63, 63, 63));
+  backdrop-filter: blur(30px);
+
+  border: solid 2px #090909;
+  margin-bottom: 20px
+}
+
+#showTrackTitle {
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  margin-bottom: 40px;
+}

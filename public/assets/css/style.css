@@ -68,6 +68,26 @@ main {
   flex-grow: 1; /* Permet au contenu principal de prendre tout l'espace restant */
 }
 
+footer nav {
+  background-color: #0a0a0a;
+  height: 10vh;
+}
+footer nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+footer nav ul li {
+  margin: 0 20px;
+}
+footer nav ul li .adminButton {
+  background-color: red;
+  color: white;
+  padding: 10%;
+  font-weight: bold;
+}
+
 #sectionHome {
   height: 100vh;
 }
@@ -135,26 +155,6 @@ main {
 .trackLibraryContainer a {
   text-decoration: none;
   color: white;
-}
-
-footer nav {
-  background-color: #0a0a0a;
-  height: 10vh;
-}
-footer nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-footer nav ul li {
-  margin: 0 20px; /* Espacement entre les éléments de la liste */
-}
-footer nav ul li .adminButton {
-  background-color: red;
-  color: white;
-  padding: 10%;
-  font-weight: bold;
 }
 
 .showPlayButton {

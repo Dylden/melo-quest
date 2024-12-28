@@ -1,0 +1,45 @@
+header {
+  background-color: #0a0a0a;
+  height: 10vh;
+  margin-bottom: 40px;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    width: 30%;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+  }
+}
+
+#userNavBar {
+  justify-content: space-around;
+}
+
+#title {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+}
+
+#usernameHeader {
+  font-size: 30px;
+}
+
+#usernameHeader:hover {
+  color: rgb(255, 114, 0);
+}
+
+#signInButtonHeader {
+  font-size: 20px;
+  padding: 5px;
+  background-color: #ff6a00;
+  border: none;
+  border-radius: 10px;
+}

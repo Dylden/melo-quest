@@ -1,5 +1,6 @@
 #sectionHome {
   height: 100vh;
+  margin-bottom: 50px;
 
   h2 {
     text-align: center;
@@ -59,14 +60,18 @@
 }
 
 .trackLibraryContainer {
-  width: 20%;
+  margin-top: 20px;
+  width: 30%;
   font-size: 30px;
   padding: 10px;
+  margin-bottom: 40px;
   background-color: #ff6a00;
-  word-break: break-word;
+  justify-content: center;
+  text-align: center;
 
   a {
     text-decoration: none;
     color: white;
+
   }
 }

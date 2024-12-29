@@ -13,7 +13,7 @@ class UserHomeController extends AbstractController
     public function homeUser(TrackRepository $trackRepository): Response
     {
         $user = $this->getUser();
-        $recentTracks = $trackRepository->findBy([], ['createdAt' => 'DESC'], 4);
+        $recentTracks = $trackRepository->findBy([], ['createdAt' => 'DESC'], 8);
 
         return $this->render('user/home/index.html.twig', [
             'user' => $user,

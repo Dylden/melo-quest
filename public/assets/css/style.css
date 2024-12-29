@@ -90,6 +90,7 @@ footer nav ul li .adminButton {
 
 #sectionHome {
   height: 100vh;
+  margin-bottom: 50px;
 }
 #sectionHome h2 {
   text-align: center;
@@ -146,11 +147,14 @@ footer nav ul li .adminButton {
 }
 
 .trackLibraryContainer {
-  width: 20%;
+  margin-top: 20px;
+  width: 30%;
   font-size: 30px;
   padding: 10px;
+  margin-bottom: 40px;
   background-color: #ff6a00;
-  word-break: break-word;
+  justify-content: center;
+  text-align: center;
 }
 .trackLibraryContainer a {
   text-decoration: none;
@@ -206,6 +210,55 @@ footer nav ul li .adminButton {
 }
 .commentsContainer .listCommentsContainer ul {
   margin-bottom: 30px;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.carousel .carouselTrack {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+.carousel .carouselItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 25%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.carousel .carouselItem .cover {
+  margin-bottom: 20px;
+  width: 150px;
+  height: 150px;
+  background-color: #555555;
+}
+.carousel button.prev, .carousel button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #555555;
+  color: white;
+  border: none;
+  padding: 0.5em;
+  z-index: 10;
+}
+.carousel button.prev:hover, .carousel button.next:hover {
+  background: #090909;
+}
+.carousel button.prev {
+  left: 0;
+}
+.carousel button.next {
+  right: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

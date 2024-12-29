@@ -29,15 +29,16 @@
 
         <!-- CAROUSEL -->
 
-        <div class="recentTracks">
+        <div class="carousel">
+            <button class="prev">⟨</button>
 
-            <ul>
+            <div class="carouselTrack">
+
                 {% for track in recentTracks %}
-                    <div class="trackLibraryContainer">
-                        <li>
-                            <h3>{{ track.title }}</h3>
-                            <p>Par {{ track.user.username }}</p>
-                        </li>
+                    <div class="carouselItem">
+                        <div class="cover"></div>
+                        <h3>{{ track.title }}</h3>
+                        <p>Par {{ track.user.username }}</p>
                     </div>
 
 
@@ -46,13 +47,18 @@
                     <li>Aucune musique ajoutée récemment.</li>
 
                 {% endfor %}
-            </ul>
+
+            </div>
+
+            <button class="next">⟩</button>
+
         </div>
 
         <!-- -->
-
-        <div>
-            <a href="{{ path('tracks_library') }}">Explorateur de musiques</a>
+        <div class="flex">
+            <div class="trackLibraryContainer">
+                <a href="{{ path('tracks_library') }}">Explorateur de musiques</a>
+            </div>
         </div>
 
 
@@ -67,5 +73,51 @@
         </div>
     </article>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.querySelector('.carouselTrack');
+            const prevButton = document.querySelector('.prev');
+            const nextButton = document.querySelector('.next');
+
+            if (!track || !prevButton || !nextButton) {
+                console.error("Un ou plusieurs éléments sont introuvables.");
+                return;
+            }
+
+            let currentIndex = 0;
+            const totalItems = track.children.length; // Nombre total d'éléments dans le carrousel
+            const visibleItems = 4; // Nombre d'éléments visibles à la fois
+            const itemWidth = 100 / visibleItems; // Largeur d'un élément
+
+            // Ajuste la largeur de la track pour s'assurer que le carrousel peut contenir tous les éléments
+            track.style.width = `${totalItems * itemWidth}%`;
+
+            // Fonction pour mettre à jour le déplacement du carrousel en fonction de l'index actuel
+            function updateCarousel() {
+                track.style.transform = `translateX(-${(currentIndex * itemWidth)}%)`;
+            }
+
+            // Gestion du clic sur le bouton "Suivant"
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < totalItems - visibleItems) {
+                    currentIndex += visibleItems;
+                    updateCarousel();
+                }
+            });
+
+            // Gestion du clic sur le bouton "Précédent"
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex -= visibleItems;
+                    updateCarousel();
+                }
+            });
+        });
+
+
+    </script>
 {% endblock %}
 

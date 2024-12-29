@@ -4,6 +4,7 @@ namespace App\Controller\user;
 
 use App\Entity\Comment;
 use App\Entity\Track;
+use App\Entity\User;
 use App\Form\CommentType;
 use App\Form\TrackType;
 use App\Repository\CommentRepository;
@@ -27,6 +28,16 @@ class TrackController extends AbstractController
         return $this->render('user/track/index.html.twig', [
             'user' => $user,
             'tracks' => $tracks,
+        ]);
+    }
+
+    #[Route('/user/{id}/tracks', name: 'tracks_user_list', requirements: ['id' => '\d+'])]
+    public function listUserTracks(User $user,TrackRepository $trackRepository): Response{
+        $tracks = $trackRepository->findBy(['user' => $user]);
+
+        return $this->render('user/track/user_tracks.html.twig', [
+            'tracks' => $tracks,
+            'user' => $user,
         ]);
     }
 

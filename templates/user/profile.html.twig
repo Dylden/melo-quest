@@ -16,7 +16,7 @@
 
         <h2>Les musiques de {{ user.username }} :</h2>
 
-        <a href="{{ path('track') }}" id="signInButtonMain">Liste musiques</a>
+        <a href="{{ path('tracks_user_list', { 'id': user.id}) }}" id="signInButtonMain">Liste musiques</a>
 
 
 

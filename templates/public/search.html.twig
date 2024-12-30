@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Explorateur de musiques {% endblock %}
+
+{% block body %}
+
+
+    <h1>Résultats de recherche</h1>
+
+    <form id="searchBar" method="get" action="{{ path('search') }}">
+        <input type="search" name="search" placeholder="Rechercher" value="{{ app.request.query.get('search') }}">
+    </form>
+
+    <div class="example-wrapper">
+
+        {% for track in tracks %}
+
+            <p>{{ track.id }}</p>
+            <p>{{ track.title }}</p>
+
+            {% for genre in track.genres %}
+                <p>{{ genre.name }}</p>
+            {% endfor %}
+
+            <p>{{ track.createdAt | date('d-m-Y') }}</p>
+
+            <a href="{{ path('track_show', {'id': track.id}) }}" class="btn btn-primary">Play</a>
+
+
+        {% endfor %}
+
+    </div>
+
+
+{% endblock %}

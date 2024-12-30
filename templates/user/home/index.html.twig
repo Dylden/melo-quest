@@ -22,9 +22,9 @@
         <h2>Découvre de</h2>
         <h2>nouvelles musiques</h2>
 
-        <form id="searchBar">
+        <form id="searchBar" method="get" action="{{ path('search') }}">
             <label for="search"></label>
-            <input id="searchBarInput" type="search" name="search" placeholder="RECHERCHER">
+            <input id="searchBarInput" type="search" name="search" placeholder="RECHERCHER" value="{{ app.request.query.get('search') }}">
         </form>
 
         <!-- CAROUSEL -->

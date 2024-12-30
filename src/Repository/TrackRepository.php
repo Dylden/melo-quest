@@ -16,6 +16,15 @@ class TrackRepository extends ServiceEntityRepository
         parent::__construct($registry, Track::class);
     }
 
+    public function findBySearchTerm(string $term)
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.title LIKE :term')
+            ->setParameter('term', '%' . $term . '%')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Track[] Returns an array of Track objects
 //     */

@@ -1,21 +1,39 @@
-const track = document.querySelector('.carousel-track');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-
-let currentIndex = 0;
-
-console.log('COUCOU');
-
-nextButton.addEventListener('click', () => {
-    currentIndex = Math.min(currentIndex + 1, track.children.length - 1);
-    track.style.transform = `translateX(-${currentIndex * 100}%)`
-})
-
-prevButton.addEventListener('click', () => {
-    currentIndex = Math.max(currentIndex - 1, 0);
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-});
-
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("Carrousel chargé !")
-})
+    const track = document.querySelector('.carouselTrack');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+
+    if (!track || !prevButton || !nextButton) {
+        console.error("Un ou plusieurs éléments sont introuvables.");
+        return;
+    }
+
+    let currentIndex = 0;
+    const totalItems = track.children.length; // Nombre total d'éléments dans le carrousel
+    const visibleItems = 4; // Nombre d'éléments visibles à la fois
+    const itemWidth = 100 / visibleItems; // Largeur d'un élément
+
+    // Ajuste la largeur de la track pour s'assurer que le carrousel peut contenir tous les éléments
+    track.style.width = `${totalItems * itemWidth}%`;
+
+    // Fonction pour mettre à jour le déplacement du carrousel en fonction de l'index actuel
+    function updateCarousel() {
+        track.style.transform = `translateX(-${(currentIndex * itemWidth)}%)`;
+    }
+
+    // Gestion du clic sur le bouton "Suivant"
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < totalItems - visibleItems) {
+            currentIndex += visibleItems;
+            updateCarousel();
+        }
+    });
+
+    // Gestion du clic sur le bouton "Précédent"
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex -= visibleItems;
+            updateCarousel();
+        }
+    });
+});

@@ -12,10 +12,12 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function home(TrackRepository $trackRepository): Response
     {
+        $user = $this->getUser();
         $recentTracks = $trackRepository->findBy([], ['createdAt' => 'DESC'], 8);
 
         return $this->render('public/home/index.html.twig', [
             'recentTracks' => $recentTracks,
+            'user' => $user
         ]);
     }
 }

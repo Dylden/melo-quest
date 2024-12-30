@@ -19,6 +19,9 @@ class SearchController extends AbstractController
 
         $tracks = $trackRepository->findBySearchTerm($searchTerm);
 
+        $template = $this->getUser() ? 'user/search.html.twig' : 'user/search.html.twig';
+
+
         return $this->render('public/search.html.twig', [
             'tracks' => $tracks,
         ]);

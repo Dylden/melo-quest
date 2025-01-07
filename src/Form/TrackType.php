@@ -17,16 +17,25 @@ class TrackType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title')
+            ->add('title', null, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Titre',
+                ]
+            ])
             ->add('genres', EntityType::class, [
                 'class' => Genre::class,
                 'choice_label' => 'name',
                 'multiple' => true,
+                'attr' => ['class' => 'form-select'],
             ])
             ->add('filename', FileType::class, [
                 'mapped' => false,
+                'attr' => ['class' => 'form-control-file'],
             ])
-            ->add('submit', SubmitType::class);
+            ->add('submit', SubmitType::class, [
+                'attr' => ['class' => 'btn btn-primary'],
+            ]);
 
             //->add('user', EntityType::class, [
               //  'class' => Admin::class,

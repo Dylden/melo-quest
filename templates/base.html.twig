@@ -18,8 +18,19 @@
             <ul>
                 <a href="{{ path ('home') }}"><img src="{{ asset('assets/img/Music.jpg') }}" alt="logo"></a>
                 <li><a href="{{ path ('home') }}" id="title">MeloQuest</a></li>
-                <li><a href="{{ path ('login') }}">Connexion</a></li>
-                <li><a href="{{ path ('sign_in') }}" id="signInButtonHeader">Inscription</a></li>
+
+                {% if app.user %}
+
+                    <li><a href="{{ path ('logout') }}">Déconnexion</a></li>
+
+
+                {% else %}
+
+                    <li><a href="{{ path ('login') }}">Connexion</a></li>
+                    <li><a href="{{ path ('sign_in') }}" id="signInButtonHeader">Inscription</a></li>
+
+                {% endif %}
+
             </ul>
         </nav>
     </header>

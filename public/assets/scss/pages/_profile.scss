@@ -1,0 +1,30 @@
+.profileContainer {
+  background-color: #181818;
+  color: white;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 40px;
+  }
+
+  ul {
+    li {
+      list-style-type: none;
+    }
+  }
+
+  h2 {
+    margin-bottom: 40px;
+  }
+}
+
+#listUserTracks {
+  background-color: orangered;
+  border: none;
+  border-radius: 2px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}

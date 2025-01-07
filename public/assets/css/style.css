@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -6,14 +5,14 @@
 }
 
 html, body {
-  height: 100%; /* Fixe la hauteur totale de la page */
-  margin: 0; /* Enlève les marges par défaut */
+  height: 100%;
+  margin: 0;
 }
 
 body {
   scroll-behavior: smooth;
   display: flex;
-  flex-direction: column; /* Organise les éléments (header, main, footer) en colonne */
+  flex-direction: column;
   height: 100vh;
 }
 
@@ -65,7 +64,7 @@ ul a {
 
 main {
   font-family: Roboto, sans-serif;
-  flex-grow: 1; /* Permet au contenu principal de prendre tout l'espace restant */
+  flex-grow: 1;
 }
 
 footer nav {
@@ -210,6 +209,96 @@ footer nav ul li .adminButton {
 }
 .commentsContainer .listCommentsContainer ul {
   margin-bottom: 30px;
+}
+
+.createTrackContainer {
+  background-color: #181818;
+  color: white;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+}
+.createTrackContainer h1 {
+  margin-bottom: 40px;
+}
+
+.form-control {
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 40px;
+}
+
+.form-select {
+  width: 200px;
+}
+
+.btn-primary {
+  margin-top: 40px;
+  background-color: orangered;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  width: 200px;
+  padding: 10px;
+}
+
+.profileContainer {
+  background-color: #181818;
+  color: white;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
+.profileContainer h1 {
+  margin-bottom: 40px;
+}
+.profileContainer ul li {
+  list-style-type: none;
+}
+.profileContainer h2 {
+  margin-bottom: 40px;
+}
+
+#listUserTracks {
+  background-color: orangered;
+  border: none;
+  border-radius: 2px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.userTracksContainer {
+  background-color: #181818;
+  margin: 20px;
+  padding: 20px;
+  color: white;
+}
+.userTracksContainer h1 {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.userTracksContainer .userTracksFlex {
+  display: flex;
+  wrap-option: wrap;
+}
+.userTracksContainer .userTracksFlex .trackBox {
+  background-color: #555555;
+  margin-left: 20px;
+  padding: 20px;
+}
+.userTracksContainer .userTracksFlex .trackBox .trackSettings {
+  background-color: white;
+  color: #090909;
+  padding: 20px;
+}
+.userTracksContainer .userTracksFlex .trackBox .trackSettings a {
+  text-decoration: none;
+  color: #090909;
+}
+.userTracksContainer .userTracksFlex .trackBox .trackSettings .btn-primary {
+  background: none;
+  color: #090909;
 }
 
 .carousel {

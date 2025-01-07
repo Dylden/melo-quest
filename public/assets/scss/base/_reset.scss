@@ -5,14 +5,13 @@
 }
 
 html, body {
-  height: 100%; /* Fixe la hauteur totale de la page */
-  margin: 0; /* Enlève les marges par défaut */
+  height: 100%;
+  margin: 0;
 }
 
 body {
   scroll-behavior: smooth;
   display: flex;
-  flex-direction: column; /* Organise les éléments (header, main, footer) en colonne */
+  flex-direction: column;
   height: 100vh;
-
 }

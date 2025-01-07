@@ -1,0 +1,38 @@
+.userTracksContainer {
+  background-color: #181818;
+  margin: 20px;
+  padding: 20px;
+  color: white;
+
+  h1 {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .userTracksFlex {
+    display: flex;
+    wrap-option: wrap;
+
+    .trackBox {
+      background-color: #555555;
+      margin-left: 20px;
+      padding: 20px;
+
+      .trackSettings {
+        background-color: white;
+        color: #090909;
+        padding: 20px;
+
+        a {
+          text-decoration: none;
+          color: #090909;
+        }
+
+        .btn-primary {
+          background: none;
+          color: #090909;
+        }
+      }
+    }
+  }
+}

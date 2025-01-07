@@ -4,6 +4,7 @@ namespace App\Controller\public;
 
 use App\Repository\TrackRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,17 +13,22 @@ class SearchController extends AbstractController
 {
 
     #[Route('/search', 'search')]
-    public function searchTrack(Request $request, TrackRepository $trackRepository): Response
+    public function searchTrack(Request $request, TrackRepository $trackRepository, Security $security): Response
     {
 
         $searchTerm = $request->query->get('search', '');
 
+
+        if($security->isGranted('IS_AUTHENTICATED_FULLY')) {
+            $tracks = $trackRepository->findBySearchTermForUser($searchTerm, $security->getUser());
+            $template = 'user/user-search.html.twig';
+        } else {
+            $tracks = $trackRepository->findBySearchTerm($searchTerm);
+            $template = 'public/search.html.twig';
+        }
         $tracks = $trackRepository->findBySearchTerm($searchTerm);
 
-        $template = $this->getUser() ? 'user/search.html.twig' : 'user/search.html.twig';
-
-
-        return $this->render('public/search.html.twig', [
+        return $this->render($template, [
             'tracks' => $tracks,
         ]);
     }

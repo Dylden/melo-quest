@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Track;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -21,6 +22,17 @@ class TrackRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('t')
             ->where('t.title LIKE :term')
             ->setParameter('term', '%' . $term . '%')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findBySearchTermForUser(string $searchTerm, User $user): array
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.title LIKE :search')
+            ->andWhere('t.user = :user')
+            ->setParameter('search', '%' . $searchTerm .'%')
+            ->setParameter('user', $user)
             ->getQuery()
             ->getResult();
     }

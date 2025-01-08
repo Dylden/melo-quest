@@ -11,7 +11,7 @@
 
   .userTracksFlex {
     display: flex;
-    wrap-option: wrap;
+    flex-wrap: wrap;
 
     .trackBox {
       background-color: #555555;

@@ -24,32 +24,45 @@
 
         <h1 id="showTrackTitle">{{ track.title }}</h1>
 
-        <div class="audioPlayer">
-            <button id="playPauseBtn" class="showPlayButton"> ></button>
-        </div>
-
         <div class="playerBody">
             <p class="trackTitle">{{ track.title }}</p>
-            <div id="waveform" data-url="{{ asset('assets/uploads/tracks/' ~ track.filename) }}" class="waveform"></div>
 
-            <div class="controls">
-                <div class="volume">
-                    <input
-                            id="volumeSlider"
-                            class="volume-slider"
-                            type="range"
-                            name="volume-slider"
-                            min="0"
-                            max="100"
-                            value="50"/>
+            <div class="waveformContainer">
+                <div class="audioPlayer">
+                    <button id="playPauseBtn" class="showPlayButton"> ></button>
                 </div>
+
+                <div id="waveform" data-url="{{ asset('assets/uploads/tracks/' ~ track.filename) }}" class="waveform"></div>
+
+            </div>
+
+            <div class="settings">
+
+                <div class="controls">
+                    <div class="volume">
+                        <input
+                                id="volumeSlider"
+                                class="volume-slider"
+                                type="range"
+                                name="volume-slider"
+                                min="0"
+                                max="100"
+                                value="50"/>
+                    </div>
+
+
+                </div>
+
+
 
                 <div class="timecode">
                     <span id="currentTime">00:00:00</span>
                     <span>/</span>
                     <span id="totalDuration">00:00:00</span>
                 </div>
+
             </div>
+
         </div>
     </div>
 

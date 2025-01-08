@@ -54,12 +54,29 @@
 
     </section>
     <article id="articleHome">
-        <h2>Inscris-toi pour profiter de</h2>
-        <h2>ces fonctionnalités</h2>
+        {% if app.user %}
 
-        <div class="flex">
-            <a href="{{ path('sign_in') }}" id="signInButtonMain">Inscris-toi</a>
-        </div>
+            <h2>Partage tes créations</h2>
+
+
+            <div class="flex">
+                <a href="{{ path('track_create') }}" id="signInButtonMain">Ajouter une musique</a>
+
+            </div>
+
+        {% else %}
+
+            <h2>Inscris-toi pour profiter de</h2>
+            <h2>ces fonctionnalités</h2>
+
+            <div class="flex">
+                <a href="{{ path('sign_in') }}" id="signInButtonMain">Inscris-toi</a>
+            </div>
+
+
+
+        {% endif %}
+
     </article>
 </main>
     {% block javascripts %}

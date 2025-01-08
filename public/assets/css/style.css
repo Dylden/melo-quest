@@ -162,11 +162,10 @@ footer nav ul li .adminButton {
 
 .showPlayButton {
   border: none;
-  border-radius: 20px;
   background-color: orangered;
   padding: 10px;
   color: white;
-  justify-content: center;
+  margin: 20px;
 }
 
 .userTracksFlex {
@@ -174,9 +173,11 @@ footer nav ul li .adminButton {
 }
 
 #waveform {
-  background: linear-gradient(45deg, rgba(52, 52, 52, 0.8), rgb(63, 63, 63));
-  backdrop-filter: blur(30px);
+  width: 100%;
+  min-height: 8rem;
+  padding: 0.5rem 0;
   border: solid 2px #090909;
+  margin-right: 20px;
   margin-bottom: 20px;
 }
 
@@ -184,6 +185,28 @@ footer nav ul li .adminButton {
   font-family: Roboto, sans-serif;
   text-align: center;
   margin-bottom: 40px;
+}
+
+.showTrack {
+  border: black solid 1px;
+}
+
+.settings {
+  display: flex;
+  justify-content: space-between;
+}
+
+.waveformContainer {
+  display: flex;
+  align-items: center;
+}
+
+.volume-slider {
+  margin: 0 1rem;
+  cursor: pointer;
+  width: 100%;
+  outline: none;
+  background-color: orangered;
 }
 
 .commentsContainer {

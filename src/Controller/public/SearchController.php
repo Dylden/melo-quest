@@ -19,13 +19,9 @@ class SearchController extends AbstractController
         $searchTerm = $request->query->get('search', '');
 
 
-        if($security->isGranted('IS_AUTHENTICATED_FULLY')) {
-            $tracks = $trackRepository->findBySearchTermForUser($searchTerm, $security->getUser());
-            $template = 'user/user-search.html.twig';
-        } else {
-            $tracks = $trackRepository->findBySearchTerm($searchTerm);
+
             $template = 'public/search.html.twig';
-        }
+
         $tracks = $trackRepository->findBySearchTerm($searchTerm);
 
         return $this->render($template, [

@@ -41,7 +41,7 @@ class TrackController extends AbstractController
         ]);
     }
 
-    #[Route('/track/create', name: 'track_create')]
+    #[Route('/user/track/create', name: 'track_create')]
     public function createTrack(Request $request, EntityManagerInterface $entityManager, ParameterBagInterface $parameterBag, UniqueFilenameGenerator $filenameGenerator): Response{
         $track = new Track();
 
@@ -87,7 +87,7 @@ class TrackController extends AbstractController
         ]);
     }
 
-    #[Route('/track/{id}/update', name: 'track_update', requirements: ['id' => '\d+'])]
+    #[Route('/user/track/{id}/update', name: 'track_update', requirements: ['id' => '\d+'])]
     function updateTrack(Request $request, EntityManagerInterface $entityManager, Track $track): Response{
         $user = $this->getUser();
 
@@ -111,7 +111,7 @@ class TrackController extends AbstractController
         ]);
     }
 
-    #[Route('/track/{id}/show', name: 'track_show', requirements: ['id' => '\d+'])]
+    #[Route('/user/track/{id}/show', name: 'track_show', requirements: ['id' => '\d+'])]
     public function showTrack(int $id, Request $request, TrackRepository $trackRepository, CommentRepository $commentRepository, EntityManagerInterface $entityManager): Response{
 
         $user = $this->getUser();
@@ -148,7 +148,7 @@ class TrackController extends AbstractController
         ]);
     }
 
-    #[Route('/track/{id}/delete', name: 'track_delete', requirements: ['id' => '\d+'])]
+    #[Route('/user/track/{id}/delete', name: 'track_delete', requirements: ['id' => '\d+'])]
     public function deleteTrack(int $id,Request $request, EntityManagerInterface $entityManager, TrackRepository $trackRepository): Response{
 
         $track = $trackRepository->find($id);

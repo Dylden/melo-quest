@@ -1,47 +1,73 @@
 header {
-  background-color: #0a0a0a;
-  height: 10vh;
+  background: #0a0a0a;
+  height: 20vh;
   margin-bottom: 40px;
-}
 
-ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 
-  img {
-    width: 30%;
+    ul {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+        margin: 0 15px;
+
+        &.logo {
+          display: flex;
+          align-items: center;
+
+          img {
+            vertical-align: middle;
+            max-width: 120px; // Taille limite du logo
+            height: auto;
+          }
+        }
+
+        a {
+          color: white;
+          text-decoration: none;
+          font-size: 20px;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: rgb(255, 114, 0);
+          }
+        }
+      }
+    }
+
+    #navList {
+      display: flex;
+
+      li {
+        margin: 0 10px;
+      }
+    }
   }
-
-  a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-  }
-}
-
-#userNavBar {
-  justify-content: space-around;
-}
-
-#title {
-  color: white;
-  font-size: 40px;
-  text-align: center;
 }
 
 #usernameHeader {
   font-size: 30px;
 }
 
-#usernameHeader:hover {
-  color: rgb(255, 114, 0);
-}
-
 #signInButtonHeader {
   font-size: 20px;
-  padding: 5px;
+  padding: 5px 10px;
   background-color: #ff6a00;
   border: none;
   border-radius: 10px;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e65a00;
+  }
 }

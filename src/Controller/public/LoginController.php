@@ -29,41 +29,28 @@ class LoginController extends AbstractController
     #[Route('/sign_in', name: 'sign_in')]
     public function signIn(UserPasswordHasherInterface $passwordHasher, Request $request, EntityManagerInterface $entityManager): Response
     {
-
         $user = new User();
-
         $form = $this->createForm(UserType::class, $user);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $password = $form->get('password')->getData();
-
 
             if($password){
                 //Permet de hash le mot de passe inscrit par l'utilisateur
                 $hashedPassword = $passwordHasher->hashPassword($user, $password);
-
                 $user->setPassword($hashedPassword);
-
                 //Attribue au user inscrit le rôle USER
                 $user->setRoles(['ROLE_USER']);
-
                 $entityManager->persist($user);
                 $entityManager->flush();
-
                 $this->addFlash('success', 'Inscription réussie !');
-
                 return $this->redirectToRoute('home');
             } else{
                 $this->addFlash('error', 'Le mot de passe ne peut pas être vide.');
             }
-
         }
-
         $form_view = $form->createView();
-
         return $this->render('public/sign-in.html.twig', [
             'form_view' => $form_view,
         ]);

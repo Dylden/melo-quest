@@ -21,7 +21,6 @@
     <!-- Lecteur audio -->
 
     <div class="showTrack">
-
         <h1 id="showTrackTitle">{{ track.title }}</h1>
 
         <div class="playerBody">
@@ -31,11 +30,8 @@
                 <div class="audioPlayer">
                     <button id="playPauseBtn" class="showPlayButton"> ></button>
                 </div>
-
                 <div id="waveform" data-url="{{ asset('assets/uploads/tracks/' ~ track.filename) }}" class="waveform"></div>
-
             </div>
-
             <div class="settings">
 
                 <div class="controls">
@@ -49,11 +45,7 @@
                                 max="100"
                                 value="50"/>
                     </div>
-
-
                 </div>
-
-
 
                 <div class="timecode">
                     <span id="currentTime">00:00:00</span>
@@ -107,15 +99,12 @@
 
     </article>
 
-
-
     <!-- Waveform en JS pour la lecture des tracks -->
 
     <script src="https://unpkg.com/wavesurfer.js@7"></script>
     <script>
 
         //waveform
-
         document.addEventListener('DOMContentLoaded', function () {
             const wavesurfer = WaveSurfer.create({
                 container: '#waveform',
@@ -126,7 +115,6 @@
             });
 
             //Bouton Play & Pause
-
             const playPauseBtn = document.getElementById('playPauseBtn');
             playPauseBtn.addEventListener('click', function () {
                 if (wavesurfer.isPlaying()) {
@@ -139,7 +127,6 @@
             });
 
             //Timecode
-
             const currentTime = document.getElementById('currentTime')
             const totalDuration = document.getElementById('totalDuration')
 

@@ -16,10 +16,14 @@
 
 <header>
     <nav>
-        <ul>
-            <a href="{{ path ('home') }}"><img src="{{ asset('assets/img/Music.jpg') }}" alt="logo"></a>
-            <li><a href="{{ path ('home') }}" id="title">MeloQuest</a></li>
 
+        <ul>
+            <li class="logo">
+                <a href="{{ path ('home') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="Logo"></a>
+            </li>
+        </ul>
+
+        <ul id="navList">
             {% if app.user %}
 
                 <li><a href="{{ path ('user_profile') }}" id="usernameHeader">{{ app.user.username }}</a></li>
@@ -32,7 +36,6 @@
                 <li><a href="{{ path ('sign_in') }}" id="signInButtonHeader">Inscription</a></li>
 
             {% endif %}
-
         </ul>
     </nav>
 </header>

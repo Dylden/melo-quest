@@ -17,49 +17,67 @@ body {
 }
 
 header {
-  background-color: #0a0a0a;
-  height: 10vh;
+  background: #0a0a0a;
+  height: 20vh;
   margin-bottom: 40px;
 }
-
-ul {
+header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
-ul img {
-  width: 30%;
+header nav ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
-ul a {
+header nav ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+header nav ul li.logo {
+  display: flex;
+  align-items: center;
+}
+header nav ul li.logo img {
+  vertical-align: middle;
+  max-width: 120px;
+  height: auto;
+}
+header nav ul li a {
   color: white;
   text-decoration: none;
   font-size: 20px;
+  transition: color 0.3s ease;
 }
-
-#userNavBar {
-  justify-content: space-around;
+header nav ul li a:hover {
+  color: rgb(255, 114, 0);
 }
-
-#title {
-  color: white;
-  font-size: 40px;
-  text-align: center;
+header nav #navList {
+  display: flex;
+}
+header nav #navList li {
+  margin: 0 10px;
 }
 
 #usernameHeader {
   font-size: 30px;
 }
 
-#usernameHeader:hover {
-  color: rgb(255, 114, 0);
-}
-
 #signInButtonHeader {
   font-size: 20px;
-  padding: 5px;
+  padding: 5px 10px;
   background-color: #ff6a00;
   border: none;
   border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+#signInButtonHeader:hover {
+  background-color: #e65a00;
 }
 
 main {

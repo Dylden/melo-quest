@@ -9,12 +9,17 @@ security:
             entity:
                 class: App\Entity\User
                 property: email
+
+        app_admin_provider:
+            entity:
+                class: App\Entity\Admin
+                property: email
         # used to reload user from session & other features (e.g. switch_user)
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
+        user:
             lazy: true
             provider: app_user_provider
             form_login:
@@ -25,6 +30,11 @@ security:
             logout:
                 path: logout
 
+        admin:
+            lazy: true
+            provider: app_admin_provider
+            pattern: ^/admin
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
@@ -34,7 +44,9 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/user, roles: ROLE_USER }
+
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:

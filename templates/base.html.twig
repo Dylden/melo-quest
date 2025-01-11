@@ -52,8 +52,14 @@
     <nav>
         <ul>
             <li>
+
+            {% if is_granted ('ROLE_ADMIN') %}
+
             <li><a href="{{ path ('admin_dashboard') }}" id="signInButtonHeader">ADMIN</a></li>
-            </li>
+
+            {% endif %}
+
+            <li>MeloQuest © - 2024 - Tous droits réservés</li>
         </ul>
     </nav>
 </footer>

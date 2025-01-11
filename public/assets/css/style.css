@@ -97,6 +97,8 @@ footer nav ul {
 }
 footer nav ul li {
   margin: 0 20px;
+  color: white;
+  list-style-type: none;
 }
 footer nav ul li .adminButton {
   background-color: red;

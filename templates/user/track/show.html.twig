@@ -87,8 +87,9 @@
             {% for comment in comments %}
 
             <ul>
-                <li>{{ user.username }}</li>
-                <li>{{ comment.comment }}</li>
+                <li id="authorsComments">{{ user.username }}</li>
+
+                <li id="commentBox">{{ comment.comment }}</li>
             </ul>
 
             {% else %}

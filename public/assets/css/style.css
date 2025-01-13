@@ -253,6 +253,16 @@ footer nav ul li .adminButton {
 .commentsContainer .listCommentsContainer ul {
   margin-bottom: 30px;
 }
+.commentsContainer .listCommentsContainer ul #authorsComments {
+  list-style-type: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+.commentsContainer .listCommentsContainer ul #commentBox {
+  list-style-type: none;
+  background-color: gray;
+  color: white;
+}
 
 .createTrackContainer {
   background-color: #181818;

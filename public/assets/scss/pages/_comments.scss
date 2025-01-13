@@ -24,6 +24,16 @@
 
     ul {
       margin-bottom: 30px;
+      #authorsComments{
+        list-style-type: none;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      #commentBox{
+        list-style-type: none;
+        background-color: gray;
+        color: white;
+      }
     }
   }
 }

@@ -17,7 +17,6 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Genre</th>
                 <th scope="col">Modifier</th>
                 <th scope="col">Supprimer</th>
@@ -27,8 +26,7 @@
 
             {% for genre in genres %}
             <tr>
-                <th scope="row">{{ genre.id }}</th>
-                <td>{{ genre.name }}</td>
+                <th scope="row">{{ genre.name }}</th>
                 <td><a href="{{ path('genre_update', {'id':  genre.id }) }}" class="btn btn-warning">Modifier</a></td>
                 <td><a href="{{ path('genre_delete', {'id': genre.id}) }}" class="btn btn-danger">Supprimer</a></td>
             </tr>

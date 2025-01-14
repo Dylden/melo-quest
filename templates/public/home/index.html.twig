@@ -36,7 +36,22 @@
 
                     {% for track in recentTracks %}
                         <div class="carouselItem">
-                            <div class="cover"></div>
+
+
+
+                                <div class="coverTrack">
+                                    {% if track.cover %}
+                                    <img src="{{ asset('assets/uploads/images/'~track.cover) }}" alt="Image de couverture">
+
+                                    {% else %}
+
+                                        <div class="cover"></div>
+
+                                    {% endif %}
+                                </div>
+
+
+
                             <h3>{{ track.title }}</h3>
                             <p>Par {{ track.user.username }}</p>
                         </div>
@@ -63,6 +78,7 @@
 
 
         </section>
+
         <article id="articleHome">
             {% if app.user %}
 

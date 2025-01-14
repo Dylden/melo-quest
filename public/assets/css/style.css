@@ -374,6 +374,7 @@ footer nav ul li .adminButton {
   justify-content: center;
 }
 .libraryContainer .trackBox .buttonContainer {
+  background-color: orangered;
   display: flex;
   margin-top: 20px;
   align-items: end;
@@ -385,6 +386,10 @@ footer nav ul li .adminButton {
   font-size: 30px;
   padding: 1px;
   border-radius: 5px;
+}
+
+img {
+  width: 100%;
 }
 
 .carousel {
@@ -415,6 +420,11 @@ footer nav ul li .adminButton {
   width: 150px;
   height: 150px;
   background-color: #555555;
+}
+.carousel .carouselItem .coverTrack {
+  margin-bottom: 20px;
+  width: 150px;
+  height: 150px;
 }
 .carousel button.prev, .carousel button.next {
   position: absolute;

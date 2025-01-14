@@ -78,8 +78,11 @@ class TrackController extends AbstractController
                 $coverName = $cover->getClientOriginalName();
                 $coverExtension = $cover->getClientOriginalExtension();
 
+                $rootDir = $parameterBag->get('kernel.project_dir');
+                $coverDir = $rootDir . '/public/assets/uploads/images';
+
                 $coverNewName = $filenameGenerator->generateUniqueFilename($coverName, $coverExtension);
-                $cover->move($uploadsDir, $coverNewName);
+                $cover->move($coverDir, $coverNewName);
 
                 $track->setCover($coverNewName);
 

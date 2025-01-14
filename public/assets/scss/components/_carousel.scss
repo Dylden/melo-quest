@@ -1,3 +1,7 @@
+img{
+  width: 100%;
+}
+
 .carousel {
   display: flex;
   align-items: center;
@@ -27,6 +31,12 @@
       width: 150px;
       height: 150px;
       background-color: #555555;
+    }
+
+    .coverTrack{
+      margin-bottom: 20px;
+      width: 150px;
+      height: 150px;
     }
   }
 

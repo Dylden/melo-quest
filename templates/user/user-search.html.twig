@@ -11,24 +11,30 @@
         <input type="search" name="search" placeholder="Rechercher" value="{{ app.request.query.get('search') }}">
     </form>
 
-    <div class="example-wrapper">
+    <div class="libraryContainer">
 
         {% for track in tracks %}
 
-            <p>{{ track.id }}</p>
-            <p>{{ track.title }}</p>
+            <div class="trackBox">
+                <h2>{{ track.title }}</h2>
+                <p>{{ track.user.username }}</p>
 
-            {% for genre in track.genres %}
-                <p>{{ genre.name }}</p>
-            {% endfor %}
 
-            <p>{{ track.createdAt | date('d-m-Y') }}</p>
+                {% for genre in track.genres %}
+                    <div class="genreFlex">
 
-            <a href="{{ path('track_show', {'id': track.id}) }}" class="btn btn-primary">Play</a>
+                        <p>{{ genre.name }}</p>
+                    </div>
+                {% endfor %}
 
+                <p>{{ track.createdAt | date('d-m-Y') }}</p>
+
+                <div class="buttonContainer">
+                    <a href="{{ path('track_show', {'id': track.id}) }}" class="playButton">Play</a>
+                </div>
+            </div>
 
         {% endfor %}
-
     </div>
 
 

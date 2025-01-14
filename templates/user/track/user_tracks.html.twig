@@ -38,8 +38,10 @@
 
                     <p>{{ track.createdAt | date('d-m-Y') }}</p>
 
-                    <div class="trackSettings">
+                    <div class="buttonContainer">
                         <a href="{{ path('track_show', {'id': track.id}) }}" class="btn btn-primary">Play</a>
+                    </div>
+                    <div>
                         <a href="{{ path('track_update', {'id' : track.id}) }}" class="btn btn-warning">Modifier</a>
                         <a href="{{ path('track_delete', {'id' : track.id}) }}" class="btn btn-danger">Supprimer</a>
                     </div>

@@ -41,11 +41,11 @@
 
                                 <div class="coverTrack">
                                     {% if track.cover %}
-                                    <img src="{{ asset('assets/uploads/images/'~track.cover) }}" alt="Image de couverture">
+                                    <a href="{{ path('track_show', {'id': track.id}) }}"><img src="{{ asset('assets/uploads/images/'~track.cover) }}" alt="Image de couverture"></a>
 
                                     {% else %}
 
-                                        <div class="cover"></div>
+                                        <a href="{{ path('track_show', {'id': track.id}) }}"><div class="cover"></div></a>
 
                                     {% endif %}
                                 </div>

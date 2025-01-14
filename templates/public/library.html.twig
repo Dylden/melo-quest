@@ -7,26 +7,31 @@
 
     <h1>Explorateur de musiques</h1>
 
-        <div class="example-wrapper">
-            <h1>Musiques</h1>
+    <div class="libraryContainer">
 
-            {% for track in tracks %}
+        {% for track in tracks %}
 
-                <p>{{ track.id }}</p>
-                <p>{{ track.title }}</p>
+            <div class="trackBox">
+                <h2>{{ track.title }}</h2>
+                <p>{{ track.user.username }}</p>
+
 
                 {% for genre in track.genres %}
-                    <p>{{ genre.name }}</p>
+                    <div class="genreFlex">
+                        <p>{{ genre.name }}</p>
+                    </div>
                 {% endfor %}
 
                 <p>{{ track.createdAt | date('d-m-Y') }}</p>
 
-                <a href="{{ path('track_show', {'id': track.id}) }}" class="btn btn-primary">Play</a>
+                <div class="buttonContainer">
+                    <a href="{{ path('track_show', {'id': track.id}) }}" class="playButton">Play</a>
+                </div>
+            </div>
 
+        {% endfor %}
 
-            {% endfor %}
-
-        </div>
+    </div>
 
 
 {% endblock %}

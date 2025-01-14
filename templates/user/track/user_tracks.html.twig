@@ -21,17 +21,19 @@
 
         <h1>Musiques</h1>
 
-        <div class="userTracksFlex">
+        <div class="libraryContainer">
 
 
             {% for track in tracks %}
 
                 <div class="trackBox">
-                    <p>{{ track.id }}</p>
-                    <p>{{ track.title }}</p>
+                    <h2>{{ track.title }}</h2>
 
                     {% for genre in track.genres %}
-                        <p>{{ genre.name }}</p>
+                        <div class="genreFlex">
+                            <p>{{ genre.name }}</p>
+
+                        </div>
                     {% endfor %}
 
                     <p>{{ track.createdAt | date('d-m-Y') }}</p>

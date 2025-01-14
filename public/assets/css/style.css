@@ -387,6 +387,39 @@ h1 {
   width: 50%;
 }
 
+.libraryContainer {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+.libraryContainer .trackBox {
+  background-color: rgba(128, 128, 128, 0.36);
+  width: 25%;
+  height: auto;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.libraryContainer .trackBox .genreFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.libraryContainer .trackBox .buttonContainer {
+  display: flex;
+  margin-top: 20px;
+  align-items: end;
+  justify-content: center;
+}
+.libraryContainer .trackBox .buttonContainer .playButton {
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  padding: 1px;
+  border-radius: 5px;
+}
+
 .carousel {
   display: flex;
   align-items: center;

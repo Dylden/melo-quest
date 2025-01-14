@@ -23,6 +23,10 @@ class TrackType extends AbstractType
                     'placeholder' => 'Titre',
                 ]
             ])
+            ->add('cover', FileType::class, [
+                'mapped' => false,
+                'attr' => ['class' => 'form-control-file']
+            ])
             ->add('genres', EntityType::class, [
                 'class' => Genre::class,
                 'choice_label' => 'name',
@@ -36,6 +40,7 @@ class TrackType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'attr' => ['class' => 'btn btn-primary'],
             ]);
+
 
             //->add('user', EntityType::class, [
               //  'class' => Admin::class,

@@ -20,6 +20,12 @@
         </div>
 
         <div>
+            {{ form_label(form_view.cover) }}
+            {{ form_widget(form_view.cover) }}
+            {{ form_errors(form_view.cover) }}
+        </div>
+
+        <div>
             {{ form_label(form_view.genres) }}
             {{ form_widget(form_view.genres) }}
             {{ form_errors(form_view.genres) }}

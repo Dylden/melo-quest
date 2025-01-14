@@ -54,6 +54,7 @@ class TrackController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $trackFile = $form->get('filename')->getData();
+            $cover = $form->get('cover')->getData();
 
             //Gestion du nom des fichiers tracks + route pour les uploads
             if($trackFile){
@@ -69,6 +70,19 @@ class TrackController extends AbstractController
                 $trackFile->move($uploadsDir, $trackFileNewName);
 
                 $track->setFilename($trackFileNewName);
+            }
+
+            //Gestion du nom des fichiers d'images pour les tracks
+            if($cover){
+
+                $coverName = $cover->getClientOriginalName();
+                $coverExtension = $cover->getClientOriginalExtension();
+
+                $coverNewName = $filenameGenerator->generateUniqueFilename($coverName, $coverExtension);
+                $cover->move($uploadsDir, $coverNewName);
+
+                $track->setCover($coverNewName);
+
             }
 
             $track->setUser($user);

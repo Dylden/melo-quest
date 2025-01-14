@@ -4,7 +4,6 @@
 
 {% block body %}
 
-
     <h1>Résultats de recherche</h1>
 
     <form id="searchBar" method="get" action="{{ path('search') }}">
@@ -18,7 +17,6 @@
             <div class="trackBox">
                 <h2>{{ track.title }}</h2>
                 <p>{{ track.user.username }}</p>
-
 
                 {% for genre in track.genres %}
                     <div class="genreFlex">
@@ -36,6 +34,5 @@
 
         {% endfor %}
     </div>
-
 
 {% endblock %}

@@ -19,18 +19,18 @@
                 {% for genre in track.genres %}
                     <div class="genreFlex">
 
-        <p>{{ genre.name }}</p>
-    </div>
-{% endfor %}
+                        <p>{{ genre.name }}</p>
+                    </div>
+                {% endfor %}
 
-<p>{{ track.createdAt | date('d-m-Y') }}</p>
+                <p>{{ track.createdAt | date('d-m-Y') }}</p>
 
-<div class="buttonContainer">
-    <a href="{{ path('track_show', {'id': track.id}) }}" class="playButton">Play</a>
-</div>
-</div>
+                <div class="buttonContainer">
+                    <a href="{{ path('track_show', {'id': track.id}) }}" class="playButton">Play</a>
+                </div>
+            </div>
 
-{% endfor %}
+        {% endfor %}
     </div>
 
 

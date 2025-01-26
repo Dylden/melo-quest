@@ -1,0 +1,68 @@
+/* SCSS pour le formulaire de connexion */
+h1 {
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 2em auto;
+  padding: 20px;
+  background-color: rgba(153, 153, 153, 0.38);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+
+    &:focus {
+      outline: none;
+      border-color: #ff500c;
+    }
+  }
+
+  button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 100%; /* S'assure que le bouton occupe toute la largeur du formulaire */
+    margin-top: 10px; /* Ajoute un petit espace au-dessus du bouton */
+
+    &:hover {
+      background-color: #ff6024;
+    }
+  }
+
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,11 @@
+@use 'variables' as *; // Importer les variables
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Le breakpoint #{$breakpoint} n'existe pas.";
+  }
+}

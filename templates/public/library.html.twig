@@ -12,6 +12,7 @@
         {% for track in tracks %}
 
             <div class="trackBox">
+                <a href="{{ path('track_show', {'id': track.id}) }}"><img src="{{ asset('assets/uploads/images/'~track.cover) }}" alt="Image de couverture"></a>
                 <h2>{{ track.title }}</h2>
                 <p>{{ track.user.username }}</p>
 

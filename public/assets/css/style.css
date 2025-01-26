@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -118,6 +119,16 @@ footer nav ul li .adminButton {
   margin-bottom: 20px;
   font-family: Roboto, sans-serif;
 }
+@media (max-width: 768px) {
+  #sectionHome h2 {
+    font-size: 40px;
+  }
+}
+@media (max-width: 480px) {
+  #sectionHome h2 {
+    font-size: 30px;
+  }
+}
 
 #searchBar {
   text-align: center;
@@ -131,6 +142,18 @@ footer nav ul li .adminButton {
   font-size: 30px;
   text-align: center;
 }
+@media (max-width: 768px) {
+  #searchBar #searchBarInput {
+    width: 80%;
+    font-size: 25px;
+  }
+}
+@media (max-width: 480px) {
+  #searchBar #searchBarInput {
+    width: 90%;
+    font-size: 20px;
+  }
+}
 
 #articleHome {
   background-color: #0a0a0a;
@@ -143,37 +166,91 @@ footer nav ul li .adminButton {
   font-size: 70px;
   margin-bottom: 20px;
 }
+@media (max-width: 768px) {
+  #articleHome h2 {
+    font-size: 40px;
+  }
+}
+@media (max-width: 480px) {
+  #articleHome h2 {
+    font-size: 30px;
+  }
+}
 
 .flex {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 #signInButtonMain {
   margin-top: 40px;
   font-size: 40px;
-  padding: 10px;
+  padding: 15px;
   background-color: #ff6a00;
   border: none;
   border-radius: 10px;
   text-decoration: none;
   color: white;
+  text-align: center;
+  display: inline-block;
+}
+@media (max-width: 768px) {
+  #signInButtonMain {
+    font-size: 30px;
+    text-align: center;
+    width: 80%;
+  }
+}
+@media (max-width: 480px) {
+  #signInButtonMain {
+    font-size: 35px;
+    width: 90%;
+  }
 }
 
 .container {
   display: flex;
   justify-content: space-around;
 }
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 .trackLibraryContainer {
-  margin-top: 20px;
-  width: 30%;
-  font-size: 30px;
-  padding: 10px;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  font-size: 40px;
+  padding: 15px;
   background-color: #ff6a00;
-  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
   text-align: center;
+  display: inline-block;
+}
+@media (max-width: 768px) {
+  .trackLibraryContainer {
+    font-size: 30px;
+    text-align: center;
+    width: 80%;
+  }
+}
+@media (max-width: 480px) {
+  .trackLibraryContainer {
+    font-size: 35px;
+    width: 90%;
+  }
 }
 .trackLibraryContainer a {
   text-decoration: none;
@@ -323,71 +400,310 @@ footer nav ul li .adminButton {
 
 .userTracksContainer {
   background-color: #181818;
-  margin: 20px;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 40px 20px;
+  max-width: 1200px;
+  border-radius: 10px;
   color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 .userTracksContainer h1 {
   margin-bottom: 40px;
-  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #ff4500;
+  padding-bottom: 10px;
+  display: inline-block;
 }
-.userTracksContainer .userTracksFlex {
+.userTracksContainer .libraryContainer {
   display: flex;
   flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
 }
-.userTracksContainer .userTracksFlex .trackBox {
-  background-color: #555555;
-  margin-left: 20px;
+.userTracksContainer .libraryContainer .trackBox {
+  background-color: #252525;
+  border-radius: 10px;
   padding: 20px;
+  width: calc(33.33% - 30px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  position: relative;
 }
-.userTracksContainer .userTracksFlex .trackBox .trackSettings {
-  background-color: white;
+.userTracksContainer .libraryContainer .trackBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+.userTracksContainer .libraryContainer .trackBox a img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+.userTracksContainer .libraryContainer .trackBox h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff4500;
+  margin-bottom: 10px;
+}
+.userTracksContainer .libraryContainer .trackBox .genreFlex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.userTracksContainer .libraryContainer .trackBox .genreFlex p {
+  background: #ff4500;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.userTracksContainer .libraryContainer .trackBox p {
+  font-size: 16px;
+  color: #bbbbbb;
+  margin-bottom: 15px;
+}
+.userTracksContainer .libraryContainer .trackBox .buttonContainer {
+  margin-bottom: 10px;
+}
+.userTracksContainer .libraryContainer .trackBox .buttonContainer .btn-primary {
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.userTracksContainer .libraryContainer .trackBox .buttonContainer .btn-primary:hover {
+  background-color: #ff6a28;
+}
+.userTracksContainer .libraryContainer .trackBox div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.userTracksContainer .libraryContainer .trackBox div .btn {
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: transform 0.2s ease;
+}
+.userTracksContainer .libraryContainer .trackBox div .btn.btn-warning {
+  background-color: #ffcc00;
   color: #090909;
+}
+.userTracksContainer .libraryContainer .trackBox div .btn.btn-danger {
+  background-color: #e63946;
+  color: white;
+}
+.userTracksContainer .libraryContainer .trackBox div .btn:hover {
+  transform: scale(1.05);
+}
+
+/* Responsiveness pour écrans de tailles moyennes et mobiles */
+@media (max-width: 1024px) {
+  .userTracksContainer {
+    padding: 20px;
+  }
+  .userTracksContainer .libraryContainer .trackBox {
+    width: calc(50% - 30px); /* Ajustement pour tablettes */
+  }
+}
+@media (max-width: 768px) {
+  .userTracksContainer h1 {
+    font-size: 28px;
+  }
+  .userTracksContainer .libraryContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .userTracksContainer .libraryContainer .trackBox {
+    width: 80%; /* Ajustement pour smartphones */
+  }
+}
+@media (max-width: 480px) {
+  .userTracksContainer h1 {
+    font-size: 24px;
+  }
+  .userTracksContainer .libraryContainer .trackBox {
+    width: 100%;
+  }
+}
+/* SCSS pour le formulaire de connexion */
+h1 {
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 2em auto;
   padding: 20px;
+  background-color: rgba(153, 153, 153, 0.38);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.userTracksContainer .userTracksFlex .trackBox .trackSettings a {
-  text-decoration: none;
-  color: #090909;
+.loginContainer label {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
 }
-.userTracksContainer .userTracksFlex .trackBox .trackSettings .btn-primary {
-  background: none;
-  color: #090909;
+.loginContainer input[type=text],
+.loginContainer input[type=email],
+.loginContainer input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+.loginContainer input[type=text]:focus,
+.loginContainer input[type=email]:focus,
+.loginContainer input[type=password]:focus {
+  outline: none;
+  border-color: #ff500c;
+}
+.loginContainer button[type=submit] {
+  padding: 12px 20px;
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  width: 100%; /* S'assure que le bouton occupe toute la largeur du formulaire */
+  margin-top: 10px; /* Ajoute un petit espace au-dessus du bouton */
+}
+.loginContainer button[type=submit]:hover {
+  background-color: #ff6024;
+}
+.loginContainer .error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* SCSS pour l'explorateur de musiques */
+h1 {
+  color: #333;
+  font-size: 36px;
+  text-align: center;
+  margin: 30px 0;
+  font-weight: 600;
 }
 
 .libraryContainer {
   display: flex;
-  gap: 40px;
   flex-wrap: wrap;
+  gap: 30px;
   justify-content: center;
   text-align: center;
-}
-.libraryContainer .trackBox {
-  background-color: rgba(128, 128, 128, 0.36);
-  width: 25%;
-  height: auto;
-  flex-wrap: wrap;
-  padding: 10px;
-}
-.libraryContainer .trackBox .genreFlex {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.libraryContainer .trackBox .buttonContainer {
-  background-color: orangered;
-  display: flex;
-  margin-top: 20px;
-  align-items: end;
-  justify-content: center;
-}
-.libraryContainer .trackBox .buttonContainer .playButton {
-  color: white;
-  text-decoration: none;
-  font-size: 30px;
-  padding: 1px;
-  border-radius: 5px;
+  padding: 20px;
+  margin: 0 auto;
 }
 
+.trackBox {
+  background-color: rgba(128, 128, 128, 0.2);
+  width: 22%; /* Pour les grands écrans */
+  height: auto;
+  flex-wrap: wrap;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.trackBox:hover {
+  transform: translateY(-10px);
+}
+.trackBox img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.trackBox h2 {
+  font-size: 20px;
+  color: #444;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.trackBox p {
+  font-size: 16px;
+  color: #666;
+  margin: 5px 0;
+}
+.trackBox .genreFlex {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.trackBox .genreFlex p {
+  background-color: #ff4500;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin: 0 5px;
+  font-size: 14px;
+}
+.trackBox .buttonContainer {
+  margin-top: 15px;
+}
+.trackBox .buttonContainer .playButton {
+  background-color: #ff4500;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+.trackBox .buttonContainer .playButton:hover {
+  background-color: #ff6024;
+}
+
+/* Responsiveness pour petits écrans (mobiles) */
+@media (max-width: 768px) {
+  .trackBox {
+    width: 45%; /* 2 par ligne */
+  }
+}
+@media (max-width: 480px) {
+  .trackBox {
+    width: 100%; /* 1 par ligne */
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 28px;
+    margin: 20px 0;
+  }
+  .playButton {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
 img {
   width: 100%;
 }
@@ -444,6 +760,11 @@ img {
 }
 .carousel button.next {
   right: 0;
+}
+@media (max-width: 768px) {
+  .carousel button .carouselItem {
+    width: 50%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

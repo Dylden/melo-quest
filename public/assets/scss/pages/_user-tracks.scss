@@ -1,37 +1,172 @@
 .userTracksContainer {
   background-color: #181818;
-  margin: 20px;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 40px 20px;
+  max-width: 1200px;
+  border-radius: 10px;
   color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
 
   h1 {
     margin-bottom: 40px;
-    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #ff4500;
+    padding-bottom: 10px;
+    display: inline-block;
   }
 
-  .userTracksFlex {
+  .libraryContainer {
     display: flex;
     flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
 
     .trackBox {
-      background-color: #555555;
-      margin-left: 20px;
+      background-color: #252525;
+      border-radius: 10px;
       padding: 20px;
+      width: calc(33.33% - 30px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+      text-align: center;
+      position: relative;
 
-      .trackSettings {
-        background-color: white;
-        color: #090909;
-        padding: 20px;
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+      }
 
-        a {
-          text-decoration: none;
-          color: #090909;
+      a img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #ff4500;
+        margin-bottom: 10px;
+      }
+
+      .genreFlex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+
+        p {
+          background: #ff4500;
+          color: #fff;
+          padding: 5px 15px;
+          border-radius: 20px;
+          font-size: 14px;
+          font-weight: 600;
         }
+      }
+
+      p {
+        font-size: 16px;
+        color: #bbbbbb;
+        margin-bottom: 15px;
+      }
+
+      .buttonContainer {
+        margin-bottom: 10px;
 
         .btn-primary {
-          background: none;
-          color: #090909;
+          background-color: #ff4500;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-transform: uppercase;
+          font-weight: bold;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: #ff6a28;
+          }
         }
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+        .btn {
+          padding: 8px 16px;
+          border-radius: 5px;
+          font-weight: bold;
+          text-transform: uppercase;
+          transition: transform 0.2s ease;
+
+          &.btn-warning {
+            background-color: #ffcc00;
+            color: #090909;
+          }
+
+          &.btn-danger {
+            background-color: #e63946;
+            color: white;
+          }
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Responsiveness pour écrans de tailles moyennes et mobiles */
+@media (max-width: 1024px) {
+  .userTracksContainer {
+    padding: 20px;
+
+    .libraryContainer {
+      .trackBox {
+        width: calc(50% - 30px); /* Ajustement pour tablettes */
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .userTracksContainer {
+    h1 {
+      font-size: 28px;
+    }
+
+    .libraryContainer {
+      flex-direction: column;
+      align-items: center;
+
+      .trackBox {
+        width: 80%; /* Ajustement pour smartphones */
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .userTracksContainer {
+    h1 {
+      font-size: 24px;
+    }
+
+    .libraryContainer {
+      .trackBox {
+        width: 100%;
       }
     }
   }

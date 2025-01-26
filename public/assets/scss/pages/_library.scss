@@ -1,39 +1,111 @@
+/* SCSS pour l'explorateur de musiques */
+h1 {
+  color: #333;
+  font-size: 36px;
+  text-align: center;
+  margin: 30px 0;
+  font-weight: 600;
+}
+
 .libraryContainer {
   display: flex;
-  gap: 40px;
   flex-wrap: wrap;
+  gap: 30px;
   justify-content: center;
   text-align: center;
+  padding: 20px;
+  margin: 0 auto;
+}
 
-  .trackBox {
-    background-color: rgba(128, 128, 128, 0.36);
-    width: 25%;
+.trackBox {
+  background-color: rgba(128, 128, 128, 0.2);
+  width: 22%; /* Pour les grands écrans */
+  height: auto;
+  flex-wrap: wrap;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  img {
+    width: 100%;
     height: auto;
-    flex-wrap: wrap;
-    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
 
+  h2 {
+    font-size: 20px;
+    color: #444;
+    font-weight: bold;
+    margin: 10px 0;
+  }
 
-    .genreFlex {
-      display: flex;
-      flex-direction: row;
-      justify-content: center
+  p {
+    font-size: 16px;
+    color: #666;
+    margin: 5px 0;
+  }
+
+  .genreFlex {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    p {
+      background-color: #ff4500;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      margin: 0 5px;
+      font-size: 14px;
     }
+  }
 
-    .buttonContainer {
-      background-color: orangered;
-      display: flex;
-      margin-top: 20px;
-      align-items: end;
-      justify-content: center;
+  .buttonContainer {
+    margin-top: 15px;
 
+    .playButton {
+      background-color: #ff4500;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      display: inline-block;
 
-      .playButton {
-        color: white;
-        text-decoration: none;
-        font-size: 30px;
-        padding: 1px;
-        border-radius: 5px;
+      &:hover {
+        background-color: #ff6024;
       }
     }
+  }
+}
+
+/* Responsiveness pour petits écrans (mobiles) */
+@media (max-width: 768px) {
+  .trackBox {
+    width: 45%; /* 2 par ligne */
+  }
+}
+
+@media (max-width: 480px) {
+  .trackBox {
+    width: 100%; /* 1 par ligne */
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin: 20px 0;
+  }
+
+  .playButton {
+    font-size: 14px;
+    padding: 8px 12px;
   }
 }

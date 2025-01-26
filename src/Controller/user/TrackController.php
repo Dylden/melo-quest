@@ -32,7 +32,8 @@ class TrackController extends AbstractController
     }
 
     #[Route('/user/{id}/tracks', name: 'tracks_user_list', requirements: ['id' => '\d+'])]
-    public function listUserTracks(User $user,TrackRepository $trackRepository): Response{
+    public function listUserTracks(User $user, TrackRepository $trackRepository): Response
+    {
         $tracks = $trackRepository->findBy(['user' => $user]);
 
         return $this->render('user/track/user_tracks.html.twig', [
@@ -42,7 +43,8 @@ class TrackController extends AbstractController
     }
 
     #[Route('/user/track/create', name: 'track_create')]
-    public function createTrack(Request $request, EntityManagerInterface $entityManager, ParameterBagInterface $parameterBag, UniqueFilenameGenerator $filenameGenerator): Response{
+    public function createTrack(Request $request, EntityManagerInterface $entityManager, ParameterBagInterface $parameterBag, UniqueFilenameGenerator $filenameGenerator): Response
+    {
         $track = new Track();
 
         $form = $this->createForm(TrackType::class, $track);
@@ -57,7 +59,7 @@ class TrackController extends AbstractController
             $cover = $form->get('cover')->getData();
 
             //Gestion du nom des fichiers tracks + route pour les uploads
-            if($trackFile){
+            if ($trackFile) {
 
                 $trackFileName = $trackFile->getClientOriginalName();
                 $trackFileExtension = $trackFile->getClientOriginalExtension();
@@ -73,7 +75,7 @@ class TrackController extends AbstractController
             }
 
             //Gestion du nom des fichiers d'images pour les tracks
-            if($cover){
+            if ($cover) {
 
                 $coverName = $cover->getClientOriginalName();
                 $coverExtension = $cover->getClientOriginalExtension();
@@ -105,7 +107,8 @@ class TrackController extends AbstractController
     }
 
     #[Route('/user/track/{id}/update', name: 'track_update', requirements: ['id' => '\d+'])]
-    function updateTrack(Request $request, EntityManagerInterface $entityManager, Track $track): Response{
+    function updateTrack(Request $request, EntityManagerInterface $entityManager, Track $track): Response
+    {
         $user = $this->getUser();
 
         $form = $this->createForm(TrackType::class, $track);
@@ -129,13 +132,14 @@ class TrackController extends AbstractController
     }
 
     #[Route('/user/track/{id}/show', name: 'track_show', requirements: ['id' => '\d+'])]
-    public function showTrack(int $id, Request $request, TrackRepository $trackRepository, CommentRepository $commentRepository, EntityManagerInterface $entityManager): Response{
+    public function showTrack(int $id, Request $request, TrackRepository $trackRepository, CommentRepository $commentRepository, EntityManagerInterface $entityManager): Response
+    {
 
         $user = $this->getUser();
         $track = $trackRepository->find($id);
 
 
-        if(!$track){
+        if (!$track) {
             throw $this->createNotFoundException("Track not found");
         }
 
@@ -150,7 +154,7 @@ class TrackController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($comment);
             $entityManager->flush();
             return $this->redirectToRoute('track_show', ['id' => $id]);
@@ -166,13 +170,28 @@ class TrackController extends AbstractController
     }
 
     #[Route('/user/track/{id}/delete', name: 'track_delete', requirements: ['id' => '\d+'])]
-    public function deleteTrack(int $id,Request $request, EntityManagerInterface $entityManager, TrackRepository $trackRepository): Response{
+    public function deleteTrack(int $id, Request $request, EntityManagerInterface $entityManager, TrackRepository $trackRepository): Response
+    {
 
         $track = $trackRepository->find($id);
 
+
+        if (!$track) {
+            throw $this->createNotFoundException("Piste introuvable.");
+        }
+
+        // Vérifier si des commentaires existent et les supprimer
+        $comments = $track->getComments();
+        if (!$comments->isEmpty()) {
+            foreach ($comments as $comment) {
+                $entityManager->remove($comment);
+            }
+        }
+
+        // Supprimer la piste après les commentaires
         $entityManager->remove($track);
         $entityManager->flush();
 
-        return $this->redirectToRoute('track');
+        return $this->redirectToRoute('tracks_user_list', ['id' => $track->getUser()->getId()]);
     }
 }

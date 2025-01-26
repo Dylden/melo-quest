@@ -33,7 +33,7 @@ img{
       background-color: #555555;
     }
 
-    .coverTrack{
+    .coverTrack {
       margin-bottom: 20px;
       width: 150px;
       height: 150px;
@@ -63,6 +63,13 @@ img{
 
     &.next {
       right: 0;
+    }
+
+    // Sur petit écran, afficher 2 éléments par écran et défiler 2 éléments à la fois
+    @media (max-width: 768px) {
+      .carouselItem {
+        width: 50%; // Afficher 2 éléments par écran
+      }
     }
   }
 }

@@ -9,6 +9,18 @@
     margin-bottom: 20px;
     font-family: Roboto, sans-serif;
   }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 30px;  // Plus petit pour les petits écrans
+    }
+  }
 }
 
 #searchBar {
@@ -23,6 +35,20 @@
     font-size: 30px;
     text-align: center;
   }
+
+  @media (max-width: 768px) {
+    #searchBarInput {
+      width: 80%;
+      font-size: 25px;  // Réduit la taille du texte sur les tablettes
+    }
+  }
+
+  @media (max-width: 480px) {
+    #searchBarInput {
+      width: 90%;
+      font-size: 20px;  // Plus petit pour les petits écrans
+    }
+  }
 }
 
 #articleHome {
@@ -36,42 +62,92 @@
     font-size: 70px;
     margin-bottom: 20px;
   }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 30px;
+    }
+  }
 }
 
 .flex {
   display: flex;
   justify-content: center;
+  align-items: center;  // Assure que les éléments sont également centrés verticalement si nécessaire
+  width: 100%;  // Assure que le conteneur prend toute la largeur disponible
+
+  @media (max-width: 768px) {
+    flex-direction: column;  // Passer en mode colonne sur petits écrans
+    align-items: center;  // Centrer les éléments verticalement et horizontalement
+  }
 }
 
 #signInButtonMain {
   margin-top: 40px;
   font-size: 40px;
-  padding: 10px;
+  padding: 15px;
   background-color: #ff6a00;
   border: none;
   border-radius: 10px;
   text-decoration: none;
   color: white;
+  text-align: center;
+  display: inline-block;
+
+  @media (max-width: 768px) {
+    font-size: 30px;
+    text-align: center;
+    width: 80%;  // Rendre plus large sur les tablettes
+  }
+
+  @media (max-width: 480px) {
+    font-size: 35px;  // Plus grand sur mobile pour les boutons importants
+    width: 90%;  // Prendre plus de place sur mobile
+  }
 }
 
 .container {
   display: flex;
   justify-content: space-around;
+
+  // Media query pour petits écrans
+  @media (max-width: 480px) {
+    flex-direction: column;  // Passer en mode colonne pour les petits écrans
+    align-items: center;  // Centrer les éléments
+  }
 }
 
 .trackLibraryContainer {
-  margin-top: 20px;
-  width: 30%;
-  font-size: 30px;
-  padding: 10px;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  font-size: 40px;
+  padding: 15px;
   background-color: #ff6a00;
-  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
   text-align: center;
+  display: inline-block;
+
+  @media (max-width: 768px) {
+    font-size: 30px;
+    text-align: center;
+    width: 80%;  // Rendre plus large sur les tablettes
+  }
+
+  @media (max-width: 480px) {
+    font-size: 35px;  // Plus grand sur mobile pour les boutons importants
+    width: 90%;  // Prendre plus de place sur mobile
+  }
 
   a {
     text-decoration: none;
     color: white;
-
   }
 }

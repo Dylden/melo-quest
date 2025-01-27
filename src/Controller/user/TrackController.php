@@ -94,7 +94,7 @@ class TrackController extends AbstractController
 
             $entityManager->persist($track);
             $entityManager->flush();
-            return $this->redirectToRoute('track');
+            return $this->redirectToRoute('tracks_user_list', ['id' => $user->getId()]);
         }
 
         $form_view = $form->createView();
@@ -131,7 +131,7 @@ class TrackController extends AbstractController
         ]);
     }
 
-    #[Route('/user/track/{id}/show', name: 'track_show', requirements: ['id' => '\d+'])]
+    #[Route('/track/{id}/show', name: 'track_show', requirements: ['id' => '\d+'])]
     public function showTrack(int $id, Request $request, TrackRepository $trackRepository, CommentRepository $commentRepository, EntityManagerInterface $entityManager): Response
     {
 

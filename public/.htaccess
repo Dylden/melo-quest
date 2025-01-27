@@ -24,6 +24,9 @@ DirectoryIndex index.php
 
     RewriteEngine On
 
+    # Définir la page d'erreur 404 personnalisée
+    ErrorDocument 404 /index.php
+
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the
     # project in a subdirectory, the base path will be prepended to allow proper

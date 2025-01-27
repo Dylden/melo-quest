@@ -1,70 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}MeloQuest{% endblock %}</title>
     <link rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"
-
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     {% endblock %}
-
-
 </head>
 <body>
 
 <header>
     <nav>
-
-        <ul>
-            <li class="logo">
-                <a href="{{ path ('home') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="Logo"></a>
-            </li>
-        </ul>
-
-        <ul id="navList">
-            {% if app.user %}
-
-                <li><a href="{{ path ('user_profile') }}" id="usernameHeader">{{ app.user.username }}</a></li>
-                <li><a href="{{ path ('logout') }}">Déconnexion</a></li>
-
-
-            {% else %}
-
-                <li><a href="{{ path ('login') }}">Connexion</a></li>
-                <li><a href="{{ path ('sign_in') }}" id="signInButtonHeader">Inscription</a></li>
-
-            {% endif %}
-        </ul>
+        <div class="container">
+            <ul class="logo">
+                <li>
+                    <a href="{{ path('home') }}">
+                        <img src="{{ asset('assets/img/logo.png') }}" alt="Logo">
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav-list">
+                {% if app.user %}
+                    <li><a href="{{ path('user_profile') }}" id="usernameHeader">{{ app.user.username }}</a></li>
+                    <li><a href="{{ path('logout') }}" class="btn">Déconnexion</a></li>
+                {% else %}
+                    <li><a href="{{ path('login') }}" class="btn">Connexion</a></li>
+                    <li><a href="{{ path('sign_in') }}" class="btn sign-in">Inscription</a></li>
+                {% endif %}
+            </ul>
+        </div>
     </nav>
 </header>
+
 <main>
-    {% block body %}
-
-
-
-    {% endblock %}
+    {% block body %}{% endblock %}
 </main>
-
 
 <footer>
     <nav>
         <ul>
-            <li>
-
-            {% if is_granted ('ROLE_ADMIN') %}
-
-            <li><a href="{{ path ('admin_dashboard') }}" class="adminButton">ADMIN</a></li>
-
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('admin_dashboard') }}" class="adminButton">ADMIN</a></li>
             {% endif %}
-
             <li>MeloQuest © - 2024 - Tous droits réservés</li>
         </ul>
     </nav>
 </footer>
 
-{% block javascripts %}
-{% endblock %}
+{% block javascripts %}{% endblock %}
 </body>
 </html>

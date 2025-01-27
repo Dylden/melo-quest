@@ -1,73 +1,118 @@
+// Variables de couleur
+$primary-color: #ff6a00;
+$secondary-color: #333;
+$background-color: #111;
+$hover-color: #ff7b30;
+$footer-bg: #2c2c2c;
+$footer-text-color: #aaa;
+$logo-size: 100px;
+
 header {
-  background: #0a0a0a;
-  height: 20vh;
-  margin-bottom: 40px;
+  background: $background-color;
+  padding: 10px 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: darken($background-color, 5%);
+  }
 
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo {
+    margin: 0;
+    img {
+      max-width: $logo-size;
+      height: auto;
+    }
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
     margin: 0;
     padding: 0;
 
-    ul {
-      display: flex;
-      align-items: center;
-      margin: 0;
-      padding: 0;
+    li {
+      margin-left: 20px;
 
-      li {
-        list-style: none;
-        margin: 0 15px;
+      a {
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
 
-        &.logo {
-          display: flex;
-          align-items: center;
-
-          img {
-            vertical-align: middle;
-            max-width: 120px; // Taille limite du logo
-            height: auto;
-          }
-        }
-
-        a {
-          color: white;
-          text-decoration: none;
-          font-size: 20px;
-          transition: color 0.3s ease;
-
-          &:hover {
-            color: rgb(255, 114, 0);
-          }
+        &:hover {
+          color: $primary-color;
         }
       }
-    }
 
-    #navList {
-      display: flex;
+      &.btn {
+        padding: 10px 20px;
+        background-color: $primary-color;
+        border-radius: 30px;
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 1px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
 
-      li {
-        margin: 0 10px;
+        &:hover {
+          background-color: $hover-color;
+          transform: scale(1.1);
+        }
+      }
+
+      &.sign-in {
+        background-color: #0066cc;
+
+        &:hover {
+          background-color: #005bb5;
+        }
       }
     }
   }
 }
 
-#usernameHeader {
-  font-size: 30px;
-}
+// Responsive design
+@media (max-width: 768px) {
+  header {
+    padding: 10px;
 
-#signInButtonHeader {
-  font-size: 20px;
-  padding: 5px 10px;
-  background-color: #ff6a00;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
+    .nav-list {
+      flex-direction: column;
+      align-items: center;
 
-  &:hover {
-    background-color: #e65a00;
+      li {
+        margin: 10px 0;
+
+        &.btn {
+          width: 50px;
+          height: 50px;
+          padding: 0;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 20px;
+          background-color: orangered;
+
+        }
+      }
+    }
   }
 }

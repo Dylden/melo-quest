@@ -7,7 +7,7 @@
     <h1>Résultats de recherche</h1>
 
     <form id="searchBar" method="get" action="{{ path('search') }}">
-        <input type="search" name="search" placeholder="Rechercher" value="{{ app.request.query.get('search') }}">
+        <input type="search" name="search" placeholder="Rechercher" value="{{ app.request.query.get('search') }}" id="searchBar">
     </form>
 
     <div class="libraryContainer">
@@ -15,6 +15,7 @@
         {% for track in tracks %}
 
             <div class="trackBox">
+                <a href="{{ path('track_show', {'id': track.id}) }}"><img src="{{ asset('assets/uploads/images/'~track.cover) }}" alt="Image de couverture"></a>
                 <h2>{{ track.title }}</h2>
                 <p>{{ track.user.username }}</p>
 

@@ -4,6 +4,9 @@ namespace App\Controller\admin;
 
 use App\Entity\Admin;
 use App\Form\UserType;
+use App\Form\TrackType;
+use App\Repository\GenreRepository;
+use App\Repository\TrackRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,12 +18,16 @@ use Symfony\Component\Routing\Attribute\Route;
 class AdminDashboardController extends AbstractController
 {
     #[Route('/admin/dashboard', name: 'admin_dashboard')]
-    public function index(UserRepository $userRepository): Response
+    public function index(UserRepository $userRepository, TrackRepository $trackRepository, GenreRepository $genreRepository): Response
     {
         $users = $userRepository->findAll();
+        $tracks = $trackRepository->findAll();
+        $genres = $genreRepository->findAll();
 
         return $this->render('admin/dashboard.html.twig', [
             'users' => $users,
+            'tracks' => $tracks,
+            'genres' => $genres
         ]);
     }
 
@@ -57,6 +64,21 @@ class AdminDashboardController extends AbstractController
         return $this->render('admin/dashboard.html.twig', [
             'form_view' => $form_view,
         ]);
+    }
+
+    #[Route('/admin/delete/track/{id}', name: 'admin_delete_track', requirements: ['id' => '\d+'])]
+    public function deleteTrackAdmin(int $id, EntityManagerInterface $entityManager, TrackRepository $trackRepository): Response
+    {
+
+        $tracks = $trackRepository->find($id);
+
+
+        $entityManager->remove($tracks);
+        $entityManager->flush();
+
+        $this->addFlash('success', "La musique a été supprimée.");
+
+        return $this->redirectToRoute('admin_dashboard');
     }
 
     #[Route('/admin/delete/{id}', name: 'admin_delete', requirements: ['id' => '\d+'])]
@@ -114,6 +136,33 @@ class AdminDashboardController extends AbstractController
         return $this->render('admin/users_list/update.html.twig', [
             'form_view' => $form_view,
             'user' => $user,
+        ]);
+    }
+
+    #[Route('/admin/update/track/{id}', name: 'admin_update_track', requirements: ['id' => '\d+'])]
+    public function updateTrackAdmin(int $id, Request $request, EntityManagerInterface $entityManager, TrackRepository$trackRepository): Response
+    {
+        $tracks = $trackRepository->find($id);
+
+        $form = $this->createForm(TrackType::class, $tracks);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager->persist($tracks);
+            $entityManager->flush();
+
+            $this->addFlash('success', "La musique a été modifié !");
+
+            return $this->redirectToRoute('admin_dashboard');
+        }
+
+        $form_view = $form->createView();
+
+        return $this->render('admin/tracks/update.html.twig', [
+            'form_view' => $form_view,
+            'tracks' => $tracks,
         ]);
     }
 

@@ -9,30 +9,45 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     let currentIndex = 0;
-    const totalItems = track.children.length; // Nombre total d'éléments dans le carrousel
-    const visibleItems = 4; // Nombre d'éléments visibles à la fois
-    const itemWidth = 100 / visibleItems; // Largeur d'un élément
-
-    // Ajuste la largeur de la track pour s'assurer que le carrousel peut contenir tous les éléments
-    track.style.width = `${totalItems * itemWidth}%`;
+    let visibleItems = 4;  // Nombre d'éléments visibles à la fois par défaut (quand l'écran est large)
+    let itemWidth = 100 / visibleItems;  // Largeur d'un élément basé sur visibleItems
 
     // Fonction pour mettre à jour le déplacement du carrousel en fonction de l'index actuel
     function updateCarousel() {
         track.style.transform = `translateX(-${(currentIndex * itemWidth)}%)`;
     }
 
-    // Gestion du clic sur le bouton "Suivant"
+    // Ajuste le nombre d'éléments visibles en fonction de la largeur de l'écran
+    function adjustVisibleItems() {
+        if (window.innerWidth <= 768) {
+            visibleItems = 2;  // Afficher 2 éléments à la fois sur les petits écrans
+        } else {
+            visibleItems = 4;  // Afficher 4 éléments sur les grands écrans
+        }
+
+        // Recalculer la largeur de chaque élément
+        itemWidth = 100 / visibleItems;
+
+        // Recalculer la largeur de la track pour s'assurer qu'elle peut contenir tous les éléments
+        track.style.width = `${track.children.length * itemWidth}%`;
+    }
+
+    // Ajuster les éléments visibles au démarrage et lors du redimensionnement de la fenêtre
+    adjustVisibleItems();
+    window.addEventListener('resize', adjustVisibleItems);
+
+    // Fonction pour gérer le clic sur le bouton "Suivant"
     nextButton.addEventListener('click', () => {
-        if (currentIndex < totalItems - visibleItems) {
-            currentIndex += visibleItems;
+        if (currentIndex < track.children.length - visibleItems) {
+            currentIndex += visibleItems;  // Défilement de 2 éléments (ou 4 selon l'écran)
             updateCarousel();
         }
     });
 
-    // Gestion du clic sur le bouton "Précédent"
+    // Fonction pour gérer le clic sur le bouton "Précédent"
     prevButton.addEventListener('click', () => {
         if (currentIndex > 0) {
-            currentIndex -= visibleItems;
+            currentIndex -= visibleItems;  // Défilement de 2 éléments (ou 4 selon l'écran)
             updateCarousel();
         }
     });

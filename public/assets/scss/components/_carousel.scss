@@ -1,4 +1,4 @@
-img{
+img {
   width: 100%;
 }
 
@@ -26,17 +26,19 @@ img{
     box-sizing: border-box;
     text-align: center;
 
-    .cover {
+    .coverTrack {
       margin-bottom: 20px;
       width: 150px;
       height: 150px;
       background-color: #555555;
     }
 
-    .coverTrack {
-      margin-bottom: 20px;
-      width: 150px;
-      height: 150px;
+    h3 {
+      margin: 10px 0;
+    }
+
+    p {
+      margin: 0;
     }
   }
 
@@ -51,6 +53,12 @@ img{
       border: none;
       padding: 0.5em;
       z-index: 10;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &:hover {
         background: #090909;
@@ -58,18 +66,18 @@ img{
     }
 
     &.prev {
-      left: 0;
+      left: 10px;
     }
 
     &.next {
-      right: 0;
+      right: 10px;
     }
+  }
+}
 
-    // Sur petit écran, afficher 2 éléments par écran et défiler 2 éléments à la fois
-    @media (max-width: 768px) {
-      .carouselItem {
-        width: 50%; // Afficher 2 éléments par écran
-      }
-    }
+// Media query pour masquer le carousel
+@media (max-width: 768px) {
+  .carousel {
+    display: none;
   }
 }

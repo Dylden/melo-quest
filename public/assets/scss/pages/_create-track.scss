@@ -1,33 +1,81 @@
 .createTrackContainer {
   background-color: #181818;
   color: white;
-  margin: 20px;
-  padding: 10px;
+  margin: 50px auto;
+  padding: 40px;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.2);
   text-align: center;
 
   h1 {
-    margin-bottom: 40px;
+    font-size: 2rem;
+    color: orangered;
+    margin-bottom: 30px;
   }
 
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+    label {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: orangered;
+    }
+
+    input, select {
+      width: 100%;
+      max-width: 400px;
+      padding: 12px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      font-size: 1rem;
+      background-color: #282828;
+      color: white;
+    }
+
+    input[type="file"] {
+      border: none;
+      padding: 5px;
+    }
+
+    span {
+      color: red;
+      font-size: 0.9rem;
+    }
+  }
+
+  button {
+    background-color: orangered;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    max-width: 400px;
+    transition: background 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #ff6347;
+    }
+  }
 }
 
-.form-control {
-  width: 200px;
-  padding: 5px;
-  margin-bottom: 40px;
-}
+// Responsive design
+@media (max-width: 768px) {
+  .createTrackContainer {
+    width: 90%;
+    padding: 20px;
+  }
 
-.form-select {
-  width: 200px;
-
-}
-
-.btn-primary {
-  margin-top: 40px;
-  background-color: orangered;
-  color: white;
-  border: none;
-  border-radius: 2px;
-  width: 200px;
-  padding: 10px;
+  input, select, button {
+    width: 100%;
+  }
 }

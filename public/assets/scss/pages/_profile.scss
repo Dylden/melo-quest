@@ -1,30 +1,70 @@
 .profileContainer {
   background-color: #181818;
   color: white;
-  margin: 20px;
-  padding: 20px;
+  margin: 40px auto;
+  padding: 30px;
   text-align: center;
+  max-width: 600px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(255, 69, 0, 0.3);
 
   h1 {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: orangered;
+  }
+
+  .userAvatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid orangered;
+    margin-bottom: 20px;
   }
 
   ul {
+    padding: 0;
     li {
       list-style-type: none;
+      font-size: 1.2rem;
+      padding: 10px;
+      background: #333;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
   }
 
   h2 {
-    margin-bottom: 40px;
+    margin: 40px 0 20px;
+    font-size: 1.5rem;
+    color: orangered;
   }
 }
 
 #listUserTracks {
   background-color: orangered;
   border: none;
-  border-radius: 2px;
-  padding: 10px;
+  border-radius: 5px;
+  padding: 15px 25px;
   text-decoration: none;
   color: white;
+  font-weight: bold;
+  transition: background 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #ff6347;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .profileContainer {
+    width: 90%;
+    padding: 20px;
+  }
+
+  #listUserTracks {
+    width: 100%;
+  }
 }
